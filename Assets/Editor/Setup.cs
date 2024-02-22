@@ -14,7 +14,7 @@ public static class Setup
     [MenuItem("Tools/Setup/Create Default Folders")]
     public static void CreateDefaultFolders()
     {
-        Folders.CreateDefault("_Project", "Animation", "Art", "Materials", "Prefabs", "Scripts/ScriptableObjects", "Scripts/InGame");
+        Folders.CreateDefault("_Project", "Animation", "Art", "Scenes", "Materials", "Prefabs", "Scripts/ScriptableObjects", "Scripts/InGame");
         Refresh();
     }
     
