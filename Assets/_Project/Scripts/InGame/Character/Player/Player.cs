@@ -2,7 +2,7 @@
 using Sirenix.OdinInspector;
 using UnityEngine;
 
-public class Player : MonoBehaviour
+public class Player : SerializedMonoBehaviour
 {
     [BoxGroup("Components")]
     [SerializeField] private Rigidbody rb;
@@ -10,11 +10,14 @@ public class Player : MonoBehaviour
     [SerializeField] private Animator anim;
     [BoxGroup("Components")]
     [SerializeField] private LayerMask groundMask;
-    
+   
+    [BoxGroup("Weapon Settings")]
+    [SerializeField] private Transform rightHand;
     
     public PlayerAnimationComponent Animation { get; private set; }
     public PlayerMovementComponent Movement { get; private set; }
     public PlayerStateComponent State { get; private set; }
+    public PlayerWeaponComponent Weapon { get; private set; }
     public bool IsDead { get; set; }
 
     private void Awake()
@@ -22,6 +25,8 @@ public class Player : MonoBehaviour
         Animation = new PlayerAnimationComponent(anim);
         Movement = new PlayerMovementComponent(this);
         State = new PlayerStateComponent(this);
+        Weapon = new PlayerWeaponComponent(this);
+        Weapon.SetWeapon(WeaponType.ScarL);
     }
 
     private void Update()
@@ -36,4 +41,5 @@ public class Player : MonoBehaviour
 
     public Rigidbody GetRb() => rb;
     public LayerMask GetGroundMask() => groundMask;
+    public Transform GetRightHand() => rightHand;
 }

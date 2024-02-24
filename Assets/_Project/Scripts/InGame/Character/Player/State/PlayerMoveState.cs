@@ -4,6 +4,12 @@
 
     public override PlayerAnimState playerState => PlayerAnimState.Move;
 
+    public override void OnUpdate()
+    {
+        base.OnUpdate();
+        player.Weapon.Shoot();
+    }
+
     public override void OnFixedUpdate()
     {
         base.OnFixedUpdate();
