@@ -4,15 +4,11 @@ using UnityEngine;
 
 public class Player : SerializedMonoBehaviour
 {
-    [BoxGroup("Components")]
-    [SerializeField] private Rigidbody rb;
-    [BoxGroup("Components")]
-    [SerializeField] private Animator anim;
-    [BoxGroup("Components")]
-    [SerializeField] private LayerMask groundMask;
+    [SerializeField, BoxGroup("Components")] private Rigidbody rb;
+    [SerializeField, BoxGroup("Components")] private Animator anim;
+    [SerializeField, BoxGroup("Components")] private LayerMask groundMask;
    
-    [BoxGroup("Weapon Settings")]
-    [SerializeField] private Transform rightHand;
+    [SerializeField, BoxGroup("Weapon Settings")] private Transform rightHand;
     
     public PlayerAnimationComponent Animation { get; private set; }
     public PlayerMovementComponent Movement { get; private set; }
