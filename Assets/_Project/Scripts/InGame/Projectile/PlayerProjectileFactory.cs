@@ -6,9 +6,9 @@ public interface IProjectileFactory
     void Destroy(Projectile projectile);
 }
 
-public static class ProjectileFactory
+public class PlayerProjectileFactory : IProjectileFactory
 {
-    public static Projectile Create(ProjectileTypes type, Vector3 position)
+    public Projectile Create(ProjectileTypes type, Vector3 position)
     {
         var projectile = ProjectilePool.Instance.Get(type);
 
@@ -17,9 +17,14 @@ public static class ProjectileFactory
         return projectile;
     }
 
-    public static void Destroy(Projectile projectile)
+    public void Destroy(Projectile projectile)
     {
         var type = projectile.GetProjectileType();
         ProjectilePool.Instance.Return(type, projectile);
     }
+}
+
+public static class EnemyProjectileFactory
+{
+    
 }

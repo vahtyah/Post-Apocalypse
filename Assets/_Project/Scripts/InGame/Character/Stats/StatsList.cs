@@ -72,5 +72,6 @@ public enum StatsType
     Damage,
     Speed,
     Mana,
-    AttackRange
+    AttackRange,
+    AttackSpeed
 }

@@ -1,29 +1,32 @@
 ﻿using System;
+using Sirenix.OdinInspector;
 using UnityEngine;
 
 public abstract class Projectile : MonoBehaviour
 {
-    [SerializeField] private Rigidbody rb;
-    [SerializeField] private float speed;
-    private CountdownTimer countdownTimer;
-    protected ProjectileTypes projectileType;
+    [SerializeField, BoxGroup("Datas")] private ProjectileData data;
+    [SerializeField, BoxGroup("Components")] private Rigidbody rb;
+
+    private CountdownTimer invisibleTimer;
+    private IProjectileFactory projectileFactory;
 
     protected void Awake()
     {
-        countdownTimer = new CountdownTimer(3f);
+        invisibleTimer = new CountdownTimer(3f);
+        projectileFactory = new PlayerProjectileFactory();
     }
 
     protected virtual void OnEnable()
     {
-        countdownTimer.Reset();
+        invisibleTimer.Reset();
     }
 
     protected virtual void Update()
     {
-        rb.velocity = transform.forward * speed;
-        countdownTimer.Tick(Time.deltaTime);
-        if (countdownTimer.IsFinished)
-            ProjectileFactory.Destroy(this);
+        rb.velocity = transform.forward * data.Speed;
+        invisibleTimer.Tick(Time.deltaTime);
+        if (invisibleTimer.IsFinished)
+            projectileFactory.Destroy(this);
     }
     
     public Projectile SetPosition(Vector3 position)
@@ -40,5 +43,5 @@ public abstract class Projectile : MonoBehaviour
     }
 
     public ProjectileTypes GetProjectileType() =>
-        projectileType;
+        data.ProjectileTypes;
 }

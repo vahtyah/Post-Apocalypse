@@ -14554,8 +14554,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 50081e4da4b24409a79cb25d7d4559a6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  data: {fileID: 11400000, guid: 9bc767c6148d6eb4ca38752521215778, type: 2}
   rb: {fileID: 7495506411341582779}
-  speed: 30
 --- !u!54 &7495506411341582779
 Rigidbody:
   m_ObjectHideFlags: 0

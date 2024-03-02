@@ -49,4 +49,11 @@ public class EnemyStats
         get => this[StatsType.Speed];
         set => this[StatsType.Speed] = value;
     }
+    
+    [ProgressBar(0, 400) , ShowInInspector]
+    public float AttackSpeed
+    {
+        get => this[StatsType.AttackSpeed];
+        set => this[StatsType.AttackSpeed] = value;
+    }
 }

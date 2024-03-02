@@ -4,9 +4,7 @@
     {
         var moveState = new PlayerMoveState(player);
         var dieState = new PlayerDieState(player);
-        
-        stateMachine.At(moveState, dieState, new FuncPredicate(() => player.IsDead));
-        
+        stateMachine.Any(dieState, player.Health.OnDie);
         stateMachine.SetState(moveState);
     }
 }

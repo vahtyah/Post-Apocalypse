@@ -7,10 +7,12 @@ public class Weapon : MonoBehaviour, IWeapon
     [SerializeField] private ParticleSystem muzzle;
     
     CountdownTimer cooldownTimer;
+    private IProjectileFactory bulletFactory;
 
     private void Start()
     {
         cooldownTimer = new CountdownTimer(weaponData.Cooldown);
+        bulletFactory = new PlayerProjectileFactory();
         cooldownTimer.Start();
     }
 
@@ -25,6 +27,6 @@ public class Weapon : MonoBehaviour, IWeapon
     {
         muzzle.Play();
         cooldownTimer.Reset();
-        ProjectileFactory.Create(weaponData.ProjectileType, shootPos.position);
+        bulletFactory.Create(weaponData.ProjectileType, shootPos.position);
     }
 }
