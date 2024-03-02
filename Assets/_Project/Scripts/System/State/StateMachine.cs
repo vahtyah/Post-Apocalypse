@@ -64,7 +64,9 @@ public class StateMachine
         return current.Transitions.FirstOrDefault(transition => transition.Condition.Evaluate());
     }
 
-    private class StateNode
+    public StateNode GetCurrentState() => current;
+
+    public class StateNode
     {
         public IState State { get; }
         public HashSet<ITransition> Transitions { get; } = new();

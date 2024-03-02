@@ -15,6 +15,8 @@
         stateMachine.SetState(moveState);
     }
 
+    public IState GetState() => stateMachine.GetCurrentState().State;
+
     private class EnemyConditions
     {
         private Enemy enemy;
@@ -25,7 +27,7 @@
         {
             this.enemy = enemy;
             this.player = InGameManager.Instance.GetPlayer();
-            sqrAttackRange = this.enemy.attackRange * this.enemy.attackRange;
+            sqrAttackRange = this.enemy.Stats.AttackRange * this.enemy.Stats.AttackRange;
         }
         
         public bool IsAttackable()
