@@ -4,11 +4,13 @@ using UnityEngine;
 
 public abstract class Projectile : MonoBehaviour
 {
-    [SerializeField, BoxGroup("Datas")] private ProjectileData data;
+    [SerializeField, BoxGroup("Datas")] protected ProjectileData data;
     [SerializeField, BoxGroup("Components")] private Rigidbody rb;
 
     private CountdownTimer invisibleTimer;
     private IProjectileFactory projectileFactory;
+    protected GameObject sender;
+    protected float damage;
 
     protected void Awake()
     {
@@ -42,6 +44,18 @@ public abstract class Projectile : MonoBehaviour
         return this;
     }
 
+    public Projectile SetSender(GameObject sender)
+    {
+        this.sender = sender;
+        return this;
+    }
+
+    public Projectile SetDamage(float damage)
+    {
+        this.damage = damage;
+        return this;
+    }
+    
     public ProjectileTypes GetProjectileType() =>
         data.ProjectileTypes;
 }

@@ -175,10 +175,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Egglet
       objectReference: {fileID: 0}
-    - target: {fileID: 8676849346226034633, guid: 80c2987cf4457734991c8a8bba65f147, type: 3}
-      propertyPath: data
-      value: 
-      objectReference: {fileID: 11400000, guid: 95fccbc69b70b334f852088432e1a2e1, type: 2}
+    - target: {fileID: 3285029250936874429, guid: 80c2987cf4457734991c8a8bba65f147, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 8676849346226034633, guid: 80c2987cf4457734991c8a8bba65f147, type: 3}
       propertyPath: serializationData.Prefab
       value: 
@@ -635,14 +635,6 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 3690972600788923870, guid: 50d6158de01de9643829bb9baa86b948, type: 3}
-      propertyPath: data
-      value: 
-      objectReference: {fileID: 11400000, guid: b25507c0eb1be4c49bb6004d4444054c, type: 2}
-    - target: {fileID: 3690972600788923870, guid: 50d6158de01de9643829bb9baa86b948, type: 3}
-      propertyPath: m_Enabled
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 3690972600788923870, guid: 50d6158de01de9643829bb9baa86b948, type: 3}
       propertyPath: serializationData.Prefab
       value: 
       objectReference: {fileID: 3690972600788923870, guid: 50d6158de01de9643829bb9baa86b948, type: 3}
@@ -689,6 +681,10 @@ PrefabInstance:
     - target: {fileID: 9106618251682822445, guid: 50d6158de01de9643829bb9baa86b948, type: 3}
       propertyPath: m_Name
       value: Shade
+      objectReference: {fileID: 0}
+    - target: {fileID: 9106618251682822445, guid: 50d6158de01de9643829bb9baa86b948, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -1201,7 +1197,7 @@ GameObject:
   - component: {fileID: 1802984567}
   m_Layer: 6
   m_Name: Player
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1292,7 +1288,7 @@ MonoBehaviour:
       Data: 
     - Name: 
       Entry: 12
-      Data: 2
+      Data: 3
     - Name: 
       Entry: 7
       Data: 
@@ -1314,6 +1310,18 @@ MonoBehaviour:
     - Name: $v
       Entry: 4
       Data: 100
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: 
+    - Name: $k
+      Entry: 3
+      Data: 1
+    - Name: $v
+      Entry: 4
+      Data: 7.20850325
     - Name: 
       Entry: 8
       Data: 

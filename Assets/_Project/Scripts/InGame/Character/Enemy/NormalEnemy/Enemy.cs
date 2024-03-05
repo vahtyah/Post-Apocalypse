@@ -1,6 +1,4 @@
-﻿using System;
-using Sirenix.OdinInspector;
-using Sirenix.Serialization;
+﻿using Sirenix.OdinInspector;
 using UnityEngine;
 using UnityEngine.AI;
 
@@ -16,6 +14,7 @@ public abstract class Enemy : SerializedMonoBehaviour
     [SerializeField, BoxGroup("Attack Settings")] private LayerMask playerMask;
     
     [BoxGroup("Debugs")] public string state;
+    [BoxGroup("Debugs")] public float currentHealth;
     
     public EnemyAnimationComponent Animation { get; private set; }
     public EnemyMovementComponent Movement { get; private set; }
@@ -35,6 +34,7 @@ public abstract class Enemy : SerializedMonoBehaviour
     {
         State.Update();
         state = State.GetState().GetType().ToString();
+        currentHealth = Health.CurrentHealth;
     }
 
     private void FixedUpdate()

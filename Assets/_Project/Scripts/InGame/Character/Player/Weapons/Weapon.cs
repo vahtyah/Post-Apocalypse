@@ -5,7 +5,7 @@ public class Weapon : MonoBehaviour, IWeapon
     [SerializeField] private WeaponData weaponData;
     [SerializeField] private Transform shootPos;
     [SerializeField] private ParticleSystem muzzle;
-    
+
     CountdownTimer cooldownTimer;
     private IProjectileFactory bulletFactory;
 
@@ -27,6 +27,11 @@ public class Weapon : MonoBehaviour, IWeapon
     {
         muzzle.Play();
         cooldownTimer.Reset();
-        bulletFactory.Create(weaponData.ProjectileType, shootPos.position, InGameManager.Instance.GetReticle().position);
+
+        var player = InGameManager.Instance.GetPlayer();
+
+        bulletFactory.Create(weaponData.ProjectileType, player.Stats.Damage, shootPos.position,
+            InGameManager.Instance.GetReticle().position,
+            player.gameObject);
     }
 }

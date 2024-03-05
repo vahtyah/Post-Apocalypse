@@ -12,5 +12,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 995fdb4249ea4cf2aa6e9d07900c0969, type: 3}
   m_Name: ScarL
   m_EditorClassIdentifier: 
-  Speed: 100
+  Speed: 40
   ProjectileTypes: 1

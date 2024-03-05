@@ -28,4 +28,11 @@ public class PlayerStats
         get => this[StatsType.Speed];
         set => this[StatsType.Speed] = value;
     }
+    
+    [ProgressBar(0, 100) , ShowInInspector]
+    public float Damage
+    {
+        get => this[StatsType.Damage];
+        set => this[StatsType.Damage] = value;
+    }
 }
