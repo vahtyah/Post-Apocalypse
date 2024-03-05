@@ -42,7 +42,7 @@ public class StateMachine
 
     public void Any(IState to, IPredicate condition) { anyTransitions.Add(new Transition(to, condition)); }
 
-    public void Any(IState to, Action action)
+    public void Any(IState to,ref Action action)
     {
         var toNode = GetOrAddStateNode(to);
         action += () => ChangeState(toNode.State);

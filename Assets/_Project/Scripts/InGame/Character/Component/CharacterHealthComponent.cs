@@ -5,7 +5,7 @@ public class CharacterHealthComponent : IHealable, IDamageable
 {
     private float currentHealth;
     private float maxHealth;
-    public Action OnDie { get; private set; }
+    public Action OnDie;
     public Action<float> OnChangeHealth { get; private set; }
 
     public float CurrentHealth
@@ -14,7 +14,7 @@ public class CharacterHealthComponent : IHealable, IDamageable
         private set
         {
             currentHealth = Mathf.Clamp(value, 0, maxHealth);
-           OnChangeHealth?.Invoke(currentHealth);
+            OnChangeHealth?.Invoke(currentHealth);
             if (currentHealth <= 0) OnDie?.Invoke();
         }
     }
@@ -31,42 +31,20 @@ public class CharacterHealthComponent : IHealable, IDamageable
         CurrentHealth = MaxHealth;
     }
 
-    public void TakeDamage(float _damage)
-    {
-        CurrentHealth -= _damage; 
-    }
+    public void TakeDamage(float _damage) { CurrentHealth -= _damage; }
 
-    public void Heal(float _heal)
-    {
-        CurrentHealth += _heal; 
-    }
-    
-    public void ResetHealth()
-    {
-        CurrentHealth = MaxHealth;
-    }
-    
-    public void AddOnDieListener(Action _onDie)
-    {
-        OnDie += _onDie;
-    }
-    
-    public void RemoveOnDieListener(Action _onDie)
-    {
-        OnDie -= _onDie;
-    }
-    
-    public void AddOnChangeHealthListener(Action<float> _onChangeHealth)
-    {
-        OnChangeHealth += _onChangeHealth;
-    }
-    
-    public void RemoveOnChangeHealthListener(Action<float> _onChangeHealth)
-    {
-        OnChangeHealth -= _onChangeHealth;
-    }
+    public void Heal(float _heal) { CurrentHealth += _heal; }
+
+    public void ResetHealth() { CurrentHealth = MaxHealth; }
+
+    public void AddOnDieListener(Action _onDie) { OnDie += _onDie; }
+
+    public void RemoveOnDieListener(Action _onDie) { OnDie -= _onDie; }
+
+    public void AddOnChangeHealthListener(Action<float> _onChangeHealth) { OnChangeHealth += _onChangeHealth; }
+
+    public void RemoveOnChangeHealthListener(Action<float> _onChangeHealth) { OnChangeHealth -= _onChangeHealth; }
 }
-
 
 public interface IDamageable
 {

@@ -14,7 +14,7 @@ public class EnemyStats
         get => stats.GetValueOrDefault(type, 0);
         set => stats[type] = value;
     }
-        
+
     [ProgressBar(0, 100) , ShowInInspector]
     public float Health
     {
@@ -29,19 +29,13 @@ public class EnemyStats
         set => this[StatsType.Damage] = value;
     }
     
-    [ProgressBar(0, 100) , ShowInInspector]
+    [ProgressBar(0, 30) , ShowInInspector]
     public float AttackRange
     {
         get => this[StatsType.AttackRange];
         set => this[StatsType.AttackRange] = value;
     }
         
-    [ProgressBar(0, 100) , ShowInInspector]
-    public float Mana
-    {
-        get => this[StatsType.Mana];
-        set => this[StatsType.Mana] = value;
-    }
     
     [ProgressBar(0, 400) , ShowInInspector]
     public float Speed
@@ -50,7 +44,7 @@ public class EnemyStats
         set => this[StatsType.Speed] = value;
     }
     
-    [ProgressBar(0, 400) , ShowInInspector]
+    [ProgressBar(0, 10) , ShowInInspector]
     public float AttackSpeed
     {
         get => this[StatsType.AttackSpeed];

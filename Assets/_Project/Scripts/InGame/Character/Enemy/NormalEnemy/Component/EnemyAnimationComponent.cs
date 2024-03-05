@@ -9,9 +9,15 @@ public class EnemyAnimationComponent
         this.animator = animator;
     }
 
+    // public void Play(string animName)
+    // {
+    //     if (animator.GetCurrentAnimatorStateInfo(0).IsName(animName)) return;
+    //     animator.Play(animName);
+    // }
+    
     public void Play(string animName)
     {
-        if (animator.GetCurrentAnimatorStateInfo(0).IsName(animName)) return;
-        animator.Play(animName);
+        animator.Play(animName, -1, 0f);
+        animator.Update(0f); // Cập nhật trạng thái animator ngay lập tức
     }
 }

@@ -12,7 +12,8 @@ public class Enemy : SerializedMonoBehaviour
     [SerializeField, BoxGroup("Components")] private NavMeshAgent agent;
     [SerializeField, BoxGroup("Components")] private Animator animator;
 
-    [SerializeField, BoxGroup("Attack Settings")] private Vector3 attackPosition;
+    [SerializeField, BoxGroup("Attack Settings")] private Transform attackPosition;
+    [SerializeField, BoxGroup("Attack Settings")] private LayerMask playerMask;
     
     [BoxGroup("Debugs")] public string state;
     
@@ -41,7 +42,14 @@ public class Enemy : SerializedMonoBehaviour
         State.FixedUpdate();
     }
 
-    public Vector3 AttackPosition => attackPosition;
+    protected void OnDrawGizmos()
+    {
+        Gizmos.color = Color.red;
+        Gizmos.DrawWireSphere(transform.position, Stats.AttackRange);
+    }
+
+    public Transform AttackPosition => attackPosition;
+    public LayerMask PlayerMask => playerMask;
 }
 
 public enum EnemyTypes

@@ -9,12 +9,13 @@ public class EnemyMeleeAttackComponent : EnemyAttackComponent
     public override void Attack()
     {
         base.Attack();
-        Collider[] results = new Collider[] { };
-        var size = Physics.OverlapSphereNonAlloc(enemy.AttackPosition, 0.2f, results);
+        var results = new Collider[1];
+        Physics.OverlapSphereNonAlloc(enemy.AttackPosition.position, 1f, results, enemy.PlayerMask);
         foreach (var collider in results)
         {
+            if(collider == null) return;
             var player = collider.GetComponent<Player>();
-            if (!player) continue;
+            if (!player) return;
             IDamageable damageable = player.Health;
             damageable.TakeDamage(enemy.Stats.Damage);
         }

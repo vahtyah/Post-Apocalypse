@@ -4,7 +4,9 @@
     {
         var moveState = new PlayerMoveState(player);
         var dieState = new PlayerDieState(player);
-        stateMachine.Any(dieState, player.Health.OnDie);
+        stateMachine.Any(dieState, ref player.Health.OnDie);
         stateMachine.SetState(moveState);
     }
+
+    public IState GetState() => stateMachine.GetCurrentState().State;
 }
