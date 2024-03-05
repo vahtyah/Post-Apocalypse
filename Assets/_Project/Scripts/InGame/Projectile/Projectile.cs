@@ -13,7 +13,7 @@ public abstract class Projectile : MonoBehaviour
     protected void Awake()
     {
         invisibleTimer = new CountdownTimer(3f);
-        projectileFactory = new PlayerProjectileFactory();
+        projectileFactory = new ProjectileFactory();
     }
 
     protected virtual void OnEnable()

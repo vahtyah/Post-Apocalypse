@@ -12,7 +12,7 @@ public class Weapon : MonoBehaviour, IWeapon
     private void Start()
     {
         cooldownTimer = new CountdownTimer(weaponData.Cooldown);
-        bulletFactory = new PlayerProjectileFactory();
+        bulletFactory = new ProjectileFactory();
         cooldownTimer.Start();
     }
 
@@ -27,6 +27,6 @@ public class Weapon : MonoBehaviour, IWeapon
     {
         muzzle.Play();
         cooldownTimer.Reset();
-        bulletFactory.Create(weaponData.ProjectileType, shootPos.position);
+        bulletFactory.Create(weaponData.ProjectileType, shootPos.position, InGameManager.Instance.GetReticle().position);
     }
 }

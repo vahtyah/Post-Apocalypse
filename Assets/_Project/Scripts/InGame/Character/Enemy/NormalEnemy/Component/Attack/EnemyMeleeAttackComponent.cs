@@ -17,7 +17,7 @@ public class EnemyMeleeAttackComponent : EnemyAttackComponent
             var player = collider.GetComponent<Player>();
             if (!player) return;
             IDamageable damageable = player.Health;
-            damageable.TakeDamage(enemy.Stats.Damage);
+            damageable.TakeDamage(enemy.Data.Stats.Damage);
         }
     }
 }

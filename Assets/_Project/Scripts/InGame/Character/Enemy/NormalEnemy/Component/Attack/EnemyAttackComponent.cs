@@ -9,7 +9,7 @@ public abstract class EnemyAttackComponent
     protected EnemyAttackComponent(Enemy enemy)
     {
         this.enemy = enemy;
-        timer = new CountdownTimer(this.enemy.Stats.AttackSpeed);
+        timer = new CountdownTimer(this.enemy.Data.Stats.AttackCooldown);
         timer.Start();
         playerTrans = InGameManager.Instance.GetPlayer().transform;
     }

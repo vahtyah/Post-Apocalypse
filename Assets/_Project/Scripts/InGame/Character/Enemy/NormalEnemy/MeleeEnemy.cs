@@ -1,4 +1,7 @@
-﻿public class MeleeEnemy : Enemy
+﻿using Sirenix.OdinInspector;
+using UnityEngine;
+
+public class MeleeEnemy : Enemy
 {
     protected override void Start()
     {

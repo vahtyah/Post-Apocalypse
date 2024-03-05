@@ -4,10 +4,10 @@ using Sirenix.Serialization;
 using UnityEngine;
 using UnityEngine.AI;
 
-public class Enemy : SerializedMonoBehaviour
+[RequireComponent(typeof(Rigidbody), typeof(NavMeshAgent))]
+public abstract class Enemy : SerializedMonoBehaviour
 {
-    [BoxGroup("Enemy Stats"), HideLabel, NonSerialized, OdinSerialize, HideReferenceObjectPicker]
-    public EnemyStats Stats = new();
+    [SerializeField, BoxGroup("Data")] private EnemyData data;
     
     [SerializeField, BoxGroup("Components")] private NavMeshAgent agent;
     [SerializeField, BoxGroup("Components")] private Animator animator;
@@ -21,14 +21,14 @@ public class Enemy : SerializedMonoBehaviour
     public EnemyMovementComponent Movement { get; private set; }
     public EnemyStateComponent State { get; private set; }
     public EnemyAttackComponent Attack { get; protected set; }
-    public CharacterHealthComponent Health { get; private set; }
+    public CharacterHealthComponent Health { get; protected set; }
     
     protected virtual void Start()
     {
+        Health = new CharacterHealthComponent(data.Stats.Health);
         Animation = new EnemyAnimationComponent(animator);
         Movement = new EnemyMovementComponent(agent);
         State = new EnemyStateComponent(this);
-        Health = new CharacterHealthComponent(Stats.Health);
     }
 
     private void Update()
@@ -42,17 +42,14 @@ public class Enemy : SerializedMonoBehaviour
         State.FixedUpdate();
     }
 
-    protected void OnDrawGizmos()
-    {
-        Gizmos.color = Color.red;
-        Gizmos.DrawWireSphere(transform.position, Stats.AttackRange);
-    }
-
     public Transform AttackPosition => attackPosition;
     public LayerMask PlayerMask => playerMask;
+    public EnemyData Data => data;
 }
 
 public enum EnemyTypes
 {
-    Egglet
+    Egglet,
+    Shade,
+    Shadow
 }

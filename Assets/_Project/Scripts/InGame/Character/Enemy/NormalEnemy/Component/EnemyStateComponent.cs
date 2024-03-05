@@ -11,6 +11,7 @@
         
         stateMachine.At(moveState, attackState, new FuncPredicate(() => conditions.IsAttackable()));
         stateMachine.At(attackState, moveState, new FuncPredicate(() => !conditions.IsAttackable()));
+        stateMachine.Any(dieState,ref enemy.Health.OnDie);
         
         stateMachine.SetState(moveState);
     }
@@ -27,7 +28,7 @@
         {
             this.enemy = enemy;
             this.player = InGameManager.Instance.GetPlayer();
-            sqrAttackRange = this.enemy.Stats.AttackRange * this.enemy.Stats.AttackRange;
+            sqrAttackRange = this.enemy.Data.Stats.AttackRange * this.enemy.Data.Stats.AttackRange;
         }
         
         public bool IsAttackable()

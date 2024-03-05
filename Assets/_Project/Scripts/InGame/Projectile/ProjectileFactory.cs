@@ -2,17 +2,17 @@
 
 public interface IProjectileFactory
 {
-    Projectile Create(ProjectileTypes type, Vector3 position);
+    Projectile Create(ProjectileTypes type, Vector3 position, Vector3 targetLookAt);
     void Destroy(Projectile projectile);
 }
 
-public class PlayerProjectileFactory : IProjectileFactory
+public class ProjectileFactory : IProjectileFactory
 {
-    public Projectile Create(ProjectileTypes type, Vector3 position)
+    public Projectile Create(ProjectileTypes type, Vector3 position, Vector3 targetLookAt)
     {
         var projectile = ProjectilePool.Instance.Get(type);
 
-        projectile.SetPosition(position).LookAt(InGameManager.Instance.GetReticle().position);
+        projectile.SetPosition(position).LookAt(targetLookAt);
 
         return projectile;
     }
@@ -22,9 +22,4 @@ public class PlayerProjectileFactory : IProjectileFactory
         var type = projectile.GetProjectileType();
         ProjectilePool.Instance.Return(type, projectile);
     }
-}
-
-public static class EnemyProjectileFactory
-{
-    
 }

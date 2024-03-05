@@ -45,7 +45,7 @@ public class EnemyStats
     }
     
     [ProgressBar(0, 10) , ShowInInspector]
-    public float AttackSpeed
+    public float AttackCooldown
     {
         get => this[StatsType.AttackSpeed];
         set => this[StatsType.AttackSpeed] = value;
