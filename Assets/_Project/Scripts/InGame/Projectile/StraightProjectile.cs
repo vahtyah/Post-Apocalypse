@@ -5,6 +5,7 @@ public class StraightProjectile : Projectile
 {
     private void OnTriggerEnter(Collider other)
     {
+        ProjectileImpactFactory.Create(data.ProjectileTypes, transform.position);
         IDamageable health = null;
         if (sender.CompareTag("Player") && other.CompareTag("Enemy"))
         {
