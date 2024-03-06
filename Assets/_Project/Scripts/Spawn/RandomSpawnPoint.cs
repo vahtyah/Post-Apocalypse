@@ -2,14 +2,15 @@ using UnityEngine;
 
 public class RandomSpawnPoint : ISpawnPoint
 {
-    private Vector3[] spawnPoints;
+    private Transform[] spawnPoints;
 
-    public RandomSpawnPoint(Vector3[] spawnPoints)
+    public RandomSpawnPoint(Transform[] spawnPoints)
     {
         this.spawnPoints = spawnPoints;
     }
 
-    public Vector3 NextSpawnPoint()
+
+    public Transform NextSpawnPoint()
     {
         var randomIndex = Random.Range(0, spawnPoints.Length);
         return spawnPoints[randomIndex];

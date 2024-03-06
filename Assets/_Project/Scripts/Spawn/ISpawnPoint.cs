@@ -2,5 +2,5 @@
 
 public interface ISpawnPoint
 {
-    Vector3 NextSpawnPoint();
+    Transform NextSpawnPoint();
 }
