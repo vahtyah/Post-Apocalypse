@@ -44,6 +44,7 @@ public class PlayerMovementComponent
         {
             Vector3 hitPoint = hit.point;
             InGameManager.Instance.GetReticle().position = hitPoint;
+            Cursor.visible = false;
             player.transform.LookAt(hitPoint);
             player.transform.eulerAngles = new Vector3(0, player.transform.eulerAngles.y, 0);
         }

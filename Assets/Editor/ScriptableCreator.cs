@@ -23,8 +23,10 @@ public class ScriptableCreator : OdinMenuEditorWindow
         tree.DefaultMenuStyle.IconSize = 28.00f;
         tree.Config.DrawSearchToolbar = true;
         tree.Add("Projectile", new CreateNewScriptableObject<ProjectileData>());
+        tree.Add("Level", new CreateNewScriptableObject<LevelData>());
         // tree.Add("Enemy", new CreateNewScriptableObject<EnemyData>());
         tree.AddAllAssetsAtPath("Projectile", "Assets/_Project/Scripts/ScriptableObjects/Projectiles", typeof(ProjectileData), true, true);
+        tree.AddAllAssetsAtPath("Level", "Assets/_Project/Scripts/ScriptableObjects/Levels", typeof(LevelData), true, true);
         tree.AddAllAssetsAtPath("Enemies", "Assets/_Project/Scripts/ScriptableObjects/Enemies", typeof(EnemyData), true, true);
 
         // tree.EnumerateTree().AddIcons<ItemData>(x => x.Icon);

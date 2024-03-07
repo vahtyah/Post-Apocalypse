@@ -30,7 +30,7 @@ public class Weapon : MonoBehaviour, IWeapon
 
         var player = InGameManager.Instance.GetPlayer();
 
-        bulletFactory.Create(weaponData.ProjectileType, player.Stats.Damage, shootPos.position,
+        bulletFactory.Create(weaponData.ProjectileType, weaponData.Damage, shootPos.position,
             InGameManager.Instance.GetReticle().position,
             player.gameObject);
     }

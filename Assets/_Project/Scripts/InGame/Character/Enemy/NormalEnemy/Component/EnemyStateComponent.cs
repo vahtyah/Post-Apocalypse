@@ -1,6 +1,6 @@
 ﻿public class EnemyStateComponent : StateComponent
 {
-
+    private readonly EnemyState startState;
     public EnemyStateComponent(Enemy enemy)
     {
         var moveState = new EnemyMoveState(enemy);
@@ -14,9 +14,15 @@
         stateMachine.Any(dieState,ref enemy.Health.OnDie);
         
         stateMachine.SetState(moveState);
+        startState = moveState;
     }
 
     public IState GetState() => stateMachine.GetCurrentState().State;
+
+    public void Reset()
+    {
+        stateMachine.SetState(startState);
+    }
 
     private class EnemyConditions
     {

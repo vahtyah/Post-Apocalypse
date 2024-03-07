@@ -2,9 +2,9 @@
 
 public class ProjectileImpact : MonoBehaviour
 {
-    public ProjectileTypes projectileType { get; private set; }
+    public Projectile.Type projectileType { get; private set; }
 
-    public ProjectileImpact SetType(ProjectileTypes type)
+    public ProjectileImpact SetType(Projectile.Type type)
     {
         projectileType = type;
         return this;

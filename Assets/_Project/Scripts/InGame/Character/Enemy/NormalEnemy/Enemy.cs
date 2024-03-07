@@ -5,7 +5,7 @@ using UnityEngine.AI;
 [RequireComponent(typeof(Rigidbody), typeof(NavMeshAgent))]
 public abstract class Enemy : SerializedMonoBehaviour
 {
-    [SerializeField, BoxGroup("Data")] private EnemyData data;
+      [SerializeField, BoxGroup("Data")] private EnemyData data;
     
     [SerializeField, BoxGroup("Components")] private NavMeshAgent agent;
     [SerializeField, BoxGroup("Components")] private Animator animator;
@@ -22,7 +22,7 @@ public abstract class Enemy : SerializedMonoBehaviour
     public EnemyAttackComponent Attack { get; protected set; }
     public CharacterHealthComponent Health { get; protected set; }
     
-    protected virtual void Start()
+    protected virtual void Awake()
     {
         Health = new CharacterHealthComponent(data.Stats.Health);
         Animation = new EnemyAnimationComponent(animator);
@@ -45,11 +45,11 @@ public abstract class Enemy : SerializedMonoBehaviour
     public Transform AttackPosition => attackPosition;
     public LayerMask PlayerMask => playerMask;
     public EnemyData Data => data;
-}
 
-public enum EnemyTypes
-{
-    Egglet,
-    Shade,
-    Shadow
+    public enum Type
+    {
+        Egglet,
+        Shade,
+        Shadow
+    }
 }

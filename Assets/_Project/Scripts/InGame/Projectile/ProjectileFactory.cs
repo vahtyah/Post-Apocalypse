@@ -2,13 +2,13 @@
 
 public interface IProjectileFactory
 {
-    Projectile Create(ProjectileTypes type, float damage, Vector3 position, Vector3 targetLookAt, GameObject sender);
+    Projectile Create(Projectile.Type type, float damage, Vector3 position, Vector3 targetLookAt, GameObject sender);
     void Destroy(Projectile projectile);
 }
 
 public class ProjectileFactory : IProjectileFactory
 {
-    public Projectile Create(ProjectileTypes type, float damage, Vector3 position, Vector3 targetLookAt, GameObject sender)
+    public Projectile Create(Projectile.Type type, float damage, Vector3 position, Vector3 targetLookAt, GameObject sender)
     {
         var projectile = ProjectilePool.Instance.Get(type);
 

@@ -7,7 +7,7 @@ using UnityEngine;
 public class EnemyData : SerializedScriptableObject
 {
     public string Name;
-    public EnemyTypes EnemyType;
+    public Enemy.Type EnemyType;
     [BoxGroup("Enemy Stats"), HideLabel, NonSerialized, OdinSerialize, HideReferenceObjectPicker]
     public EnemyStats Stats = new();
 }

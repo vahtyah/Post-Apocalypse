@@ -1,9 +1,9 @@
 ﻿public class EnemyRangedAttackComponent : EnemyAttackComponent
 {
     private IProjectileFactory projectileFactory;
-    private ProjectileTypes projectileType;
+    private Projectile.Type projectileType;
 
-    public EnemyRangedAttackComponent(Enemy enemy, ProjectileTypes projectileType) : base(enemy)
+    public EnemyRangedAttackComponent(Enemy enemy, Projectile.Type projectileType) : base(enemy)
     {
         this.projectileType = projectileType;
         projectileFactory = new ProjectileFactory();

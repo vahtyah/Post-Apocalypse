@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-public class ProjectileImpactPool : Pool<ProjectileImpact, ProjectileTypes>
+public class ProjectileImpactPool : Pool<ProjectileImpact, Projectile.Type>
 {
     
 }

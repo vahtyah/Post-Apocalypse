@@ -1,3 +1,3 @@
-﻿public class EnemyPool : Pool<Enemy, EnemyTypes>
+﻿public class EnemyPool : Pool<Enemy, Enemy.Type>
 {
 }

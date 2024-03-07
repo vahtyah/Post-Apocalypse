@@ -3,10 +3,10 @@ using UnityEngine;
 
 public class RangedEnemy : Enemy
 {
-    [SerializeField, BoxGroup("Attack Settings")] private ProjectileTypes projectileTypes;
-    protected override void Start()
+    [SerializeField, BoxGroup("Attack Settings")] private Projectile.Type projectileTypes;
+    protected override void Awake()
     {
-        base.Start();
+        base.Awake();
         Attack = new EnemyRangedAttackComponent(this, projectileTypes);
     }
 }

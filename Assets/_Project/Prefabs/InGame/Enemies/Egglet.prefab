@@ -83,10 +83,10 @@ CapsuleCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Radius: 0.3186876
-  m_Height: 1.7426928
+  m_Radius: 0.37357843
+  m_Height: 1.7849165
   m_Direction: 1
-  m_Center: {x: -0.0063249767, y: 0.8668781, z: -0.0017063022}
+  m_Center: {x: -0.0063250065, y: 0.88798994, z: -0.0017063022}
 --- !u!195 &5303851047155155605
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -138,6 +138,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 64
   state: 
+  currentHealth: 0
 --- !u!1 &8996056058916692635
 GameObject:
   m_ObjectHideFlags: 0

@@ -2,13 +2,13 @@
 
 public interface IProjectileImpactFactory
 {
-    ParticleSystem Create(ProjectileTypes type, Vector3 position);
+    ParticleSystem Create(Projectile.Type type, Vector3 position);
     void Destroy(ParticleSystem impact);
 }
 
 public static class ProjectileImpactFactory
 {
-    public static ProjectileImpact Create(ProjectileTypes type, Vector3 position)
+    public static ProjectileImpact Create(Projectile.Type type, Vector3 position)
     {
         var impact = ProjectileImpactPool.Instance.Get(type);
         impact.SetType(type).SetPosition(position);

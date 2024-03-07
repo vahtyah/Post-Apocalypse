@@ -56,6 +56,13 @@ public abstract class Projectile : MonoBehaviour
         return this;
     }
     
-    public ProjectileTypes GetProjectileType() =>
+    public Type GetProjectileType() =>
         data.ProjectileTypes;
+
+    public enum Type
+    {
+        Ak74,
+        ScarL,
+        Shadow
+    }
 }
