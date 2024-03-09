@@ -15,21 +15,16 @@ public class DropDamageAreaSkill : Action
         DamageArea();
     }
 
-    public override TaskStatus OnUpdate()
-    {
-        return TaskStatus.Success;
-    }
-
     private void DamageArea()
     {
         var startingAngle = spreadAngle / 2;
         for (int i = 0; i < numberOfProjectiles; i++)
         {
             var randomAngle = Random.Range(-startingAngle, startingAngle);
+            var direction = Quaternion.Euler(0, randomAngle, 0) * transform.forward;
             var randomRadius = Random.Range(10, 20);
-            var randomPoint = new Vector3(Mathf.Cos(randomAngle), 0, 1) * randomRadius;
-            var pointInstantiate = randomPoint + transform.position;
-            factory.Create(Projectile.Type.SpiderArea, 1, pointInstantiate);
+            var transDir = transform.position + direction * randomRadius;
+            factory.Create(Projectile.Type.SpiderArea, 1, transDir);
         }
     }
 }

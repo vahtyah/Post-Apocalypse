@@ -156,7 +156,7 @@ MonoBehaviour:
   data: {fileID: 11400000, guid: 350975141b2abd14489d70504a879b58, type: 2}
   warning: {fileID: 141224223585259060}
   skillEffect: {fileID: 5482327764753614528}
-  warningCooldown: 2
+  warningCooldown: 1
 --- !u!135 &1711520563908288362
 SphereCollider:
   m_ObjectHideFlags: 0

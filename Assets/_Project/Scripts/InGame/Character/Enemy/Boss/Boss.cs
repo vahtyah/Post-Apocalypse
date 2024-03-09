@@ -11,7 +11,7 @@ public class Boss : Enemy
     private void OnDrawGizmos()
     {
         Gizmos.color = Color.red;
-        Gizmos.DrawWireSphere(transform.position, 15);
-        Gizmos.DrawWireSphere(transform.position, 30);
+        Gizmos.DrawWireSphere(transform.position, 10);
+        Gizmos.DrawWireSphere(transform.position, 20);
     }
 }
