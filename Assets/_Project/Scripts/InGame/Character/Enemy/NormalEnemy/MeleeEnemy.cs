@@ -1,7 +1,7 @@
 ﻿using Sirenix.OdinInspector;
 using UnityEngine;
 
-public class MeleeEnemy : Enemy
+public class MeleeEnemy : NormalEnemy
 {
     protected override void Awake()
     {

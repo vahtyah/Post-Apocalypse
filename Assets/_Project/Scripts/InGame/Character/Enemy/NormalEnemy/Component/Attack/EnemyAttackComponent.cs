@@ -14,7 +14,7 @@ public abstract class EnemyAttackComponent
         playerTrans = InGameManager.Instance.GetPlayer().transform;
     }
 
-    public bool CanAttack()
+    private bool CanAttack()
     {
         timer.Tick(Time.deltaTime);
         return timer.IsFinished;
@@ -22,6 +22,7 @@ public abstract class EnemyAttackComponent
 
     public virtual void Attack()
     {
+        if(!CanAttack()) return;
         timer.Reset();
         enemy.Animation.Play(EnemyAnimationState.Attack.ToString());
         enemy.Movement.LookAt(playerTrans.position);

@@ -1,7 +1,7 @@
 ﻿using Sirenix.OdinInspector;
 using UnityEngine;
 
-public class RangedEnemy : Enemy
+public class RangedEnemy : NormalEnemy
 {
     [SerializeField, BoxGroup("Attack Settings")] private Projectile.Type projectileTypes;
     protected override void Awake()

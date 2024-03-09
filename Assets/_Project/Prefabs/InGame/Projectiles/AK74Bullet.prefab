@@ -14519,9 +14519,9 @@ GameObject:
   - component: {fileID: 3993618522950046552}
   - component: {fileID: 7495506411341582779}
   - component: {fileID: 2859948561743188844}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: AK74Bullet
-  m_TagString: Untagged
+  m_TagString: Projectile
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
