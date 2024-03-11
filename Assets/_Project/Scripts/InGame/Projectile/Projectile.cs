@@ -1,10 +1,12 @@
 ﻿using System;
+using BehaviorDesigner.Runtime.Tasks;
 using Sirenix.OdinInspector;
 using UnityEngine;
 
+[RequiredComponent(typeof(Rigidbody))]
 public abstract class Projectile : MonoBehaviour
 {
-    [SerializeField, BoxGroup("Datas")] protected ProjectileData data;
+    [SerializeField, BoxGroup("Datas"), InlineEditor] protected ProjectileData data;
 
     protected IProjectileFactory projectileFactory;
     protected GameObject sender;
@@ -47,7 +49,8 @@ public abstract class Projectile : MonoBehaviour
     {
         Ak74,
         ScarL,
-        Shadow,
-        SpiderArea
+        ShadowSpray,
+        SpiderArea,
+        Blackhole
     }
 }

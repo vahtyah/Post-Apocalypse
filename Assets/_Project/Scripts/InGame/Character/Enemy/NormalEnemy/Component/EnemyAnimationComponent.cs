@@ -20,4 +20,9 @@ public class EnemyAnimationComponent
         animator.Play(animName, -1, 0f);
         animator.Update(0f); // Cập nhật trạng thái animator ngay lập tức
     }
+
+    public bool IsCurrentAnimatorStateWithName(string animName)
+    {
+        return animator.GetCurrentAnimatorStateInfo(0).IsName(animName);
+    }
 }

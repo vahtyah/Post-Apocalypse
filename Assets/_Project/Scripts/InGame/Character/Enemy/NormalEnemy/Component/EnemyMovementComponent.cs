@@ -12,4 +12,5 @@ public class EnemyMovementComponent
 
     public void Stop() { agent.ResetPath(); }
     public void SetPosition(Vector3 spawnPoint) { agent.transform.position = spawnPoint; }
+    public void StopByIsStopped() { agent.isStopped = true; }
 }

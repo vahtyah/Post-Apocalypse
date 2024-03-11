@@ -19,5 +19,6 @@ public enum EnemyAnimationState
 {
     Move,
     Attack,
-    Die
+    Die,
+    CastSpell
 }

@@ -24,7 +24,7 @@ public class Pursue : Action
             enemy.Movement.Stop();
             return TaskStatus.Success;
         }
-
+        
         enemy.Movement.MoveTo(InGameManager.Instance.GetPlayer().transform.position);
         return TaskStatus.Running;
     }

@@ -5,7 +5,7 @@ using UnityEngine.AI;
 [RequireComponent(typeof(Rigidbody), typeof(NavMeshAgent))]
 public abstract class Enemy : SerializedMonoBehaviour
 {
-    [SerializeField, BoxGroup("Data")] private EnemyData data;
+    [SerializeField, BoxGroup("Data"), InlineEditor] private EnemyData data;
     
     [SerializeField, BoxGroup("Components")] private NavMeshAgent agent;
     [SerializeField, BoxGroup("Components")] private Animator animator;

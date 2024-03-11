@@ -30,7 +30,7 @@ public class ProjectileAreaFactory : IProjectileFactory
         GameObject sender = default)
     {
         var projectile = ProjectilePool.Instance.Get(type);
-        projectile.SetPosition(position).SetDamage(damage);
+        projectile.SetPosition(position).SetDamage(damage).SetSender(sender);
 
         return projectile;
     }
