@@ -39,7 +39,7 @@ MonoBehaviour:
       Data: 10
     - Name: spawnInterval
       Entry: 4
-      Data: 0.3
+      Data: 1
     - Name: restInterval
       Entry: 4
       Data: 3
@@ -60,7 +60,7 @@ MonoBehaviour:
       Data: 1
     - Name: restInterval
       Entry: 4
-      Data: 2
+      Data: 0
     - Name: 
       Entry: 8
       Data: 

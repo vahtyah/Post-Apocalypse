@@ -1,10 +1,16 @@
 ﻿using System.Collections.Generic;
+using System.Linq;
 using Sirenix.OdinInspector;
 using UnityEngine;
 
 public class LevelData : SerializedScriptableObject
 {
     [HideReferenceObjectPicker] public List<EnemyWaveData> waveDatas = new();
+
+    public int GetTotalEnemy()
+    {
+        return waveDatas.Sum(enemyWaveData => enemyWaveData.amount);
+    }
 }
 
 public class EnemyWaveData

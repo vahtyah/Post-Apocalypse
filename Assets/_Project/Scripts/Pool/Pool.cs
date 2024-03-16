@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using Sirenix.OdinInspector;
 using UnityEngine;
+using UnityEngine.Events;
 
 public interface IPoolable<T, E> where T : Component where E : Enum
 {
@@ -15,17 +16,20 @@ public class Pool<T, E> : SerializedSingleton<Pool<T, E>>, IPoolable<T, E> where
      DictionaryDrawerSettings(DisplayMode = DictionaryDisplayOptions.OneLine, ValueLabel = "Prefab")]
     private Dictionary<E, GameObject> pools = new();
     private readonly Dictionary<Enum, Queue<GameObject>> pooled = new();
-    
+    protected int quantityNeededReturn;
+    protected UnityEvent onAllObjectsReturned;
+
     protected override void Awake()
     {
         base.Awake();
+        onAllObjectsReturned ??= new UnityEvent();
         foreach (var pool in pools)
         {
             pooled.Add(pool.Key, new Queue<GameObject>());
         }
     }
     
-    public T Get(E key)
+    public virtual T Get(E key)
     {
         if (pooled.TryGetValue(key, out var pool))
         {
@@ -38,7 +42,7 @@ public class Pool<T, E> : SerializedSingleton<Pool<T, E>>, IPoolable<T, E> where
         return null;
     }
 
-    public void Return(E key, T obj)
+    public virtual void Return(E key, T obj)
     {
         obj.gameObject.SetActive(false);
         if (pooled.TryGetValue(key, out var pool))
@@ -50,7 +54,16 @@ public class Pool<T, E> : SerializedSingleton<Pool<T, E>>, IPoolable<T, E> where
             Debug.LogError($"No pool found for {key}");
         }
     }
-    
+
+    public Pool<T, E> SetQuantityNeededReturn(int value)
+    {
+        quantityNeededReturn += value;
+        return this;
+    }
+
+    public void AddListenerOnAllObjectsReturned(UnityAction action) => onAllObjectsReturned.AddListener(action);
+    public void RemoveAllListeners() => onAllObjectsReturned?.RemoveAllListeners();
+
     // private void CleanupPool()
     //     // {
     //     //     const float maxUnusedTime = 300f;

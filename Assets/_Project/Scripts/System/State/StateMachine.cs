@@ -26,7 +26,7 @@ public class StateMachine
         current.State?.OnEnter();
     }
 
-    private void ChangeState(IState state)
+    public void ChangeState(IState state)
     {
         if (state == current.State) return;
         current?.State?.OnExit();

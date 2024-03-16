@@ -25,6 +25,6 @@ public abstract class EnemyAttackComponent
         if(!CanAttack()) return;
         timer.Reset();
         enemy.Animation.Play(EnemyAnimationState.Attack.ToString());
-        enemy.Movement.LookAt(playerTrans.position);
+        enemy.Action.LookAt(playerTrans.position);
     }
 }

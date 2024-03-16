@@ -11,7 +11,14 @@ public class EnemyDieState : EnemyState
     public override void OnEnter()
     {
         base.OnEnter();
+        enemy.Action.SetEnableCollider(false);
         enemy.StartCoroutine(IEInvisible());
+    }
+
+    public override void OnExit()
+    {
+        base.OnExit();
+        enemy.Action.SetEnableCollider(true);
     }
 
     private IEnumerator IEInvisible()

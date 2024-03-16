@@ -21,11 +21,11 @@ public class Pursue : Action
     {
         if ((playerTrans.position - transform.position).sqrMagnitude <= sqrAttackRange)
         {
-            enemy.Movement.Stop();
+            enemy.Action.Stop();
             return TaskStatus.Success;
         }
         
-        enemy.Movement.MoveTo(InGameManager.Instance.GetPlayer().transform.position);
+        enemy.Action.MoveTo(InGameManager.Instance.GetPlayer().transform.position);
         return TaskStatus.Running;
     }
 }

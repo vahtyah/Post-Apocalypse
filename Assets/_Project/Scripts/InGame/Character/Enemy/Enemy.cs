@@ -1,4 +1,5 @@
-﻿using Sirenix.OdinInspector;
+﻿using System;
+using Sirenix.OdinInspector;
 using UnityEngine;
 using UnityEngine.AI;
 
@@ -9,26 +10,35 @@ public abstract class Enemy : SerializedMonoBehaviour
     
     [SerializeField, BoxGroup("Components")] private NavMeshAgent agent;
     [SerializeField, BoxGroup("Components")] private Animator animator;
+    [SerializeField, BoxGroup("Components")] private Collider col;
+    
 
     [SerializeField, BoxGroup("Attack Settings")] private Transform attackPosition;
     [SerializeField, BoxGroup("Attack Settings")] private LayerMask playerMask;
     
     [BoxGroup("Debugs")] public float currentHealth;
+    [BoxGroup("Debugs")] public Action onDie;
     public EnemyAnimationComponent Animation { get; private set; }
-    public EnemyMovementComponent Movement { get; private set; }
+    public EnemyActionComponent Action { get; private set; }
     public EnemyAttackComponent Attack { get; protected set; }
     public CharacterHealthComponent Health { get; protected set; }
+
+    public virtual void Reset()
+    {
+        Health.ResetHealth();
+    }
     
     protected virtual void Awake()
     {
         Health = new CharacterHealthComponent(data.Stats.Health);
         Animation = new EnemyAnimationComponent(animator);
-        Movement = new EnemyMovementComponent(agent);
+        Action = new EnemyActionComponent(agent, col);
     }
 
     protected virtual void Update()
     {
         currentHealth = Health.CurrentHealth;
+        onDie = Health.OnDie;
     }
 
     protected virtual void FixedUpdate()

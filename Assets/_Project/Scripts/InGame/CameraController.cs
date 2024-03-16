@@ -8,7 +8,7 @@ public class CameraController : MonoBehaviour
     //Vector3 curVelo;
     Vector3 offset;
     // Start is called before the first frame update
-    void Start()
+    void Awake()
     {
         offset = transform.position - playerTransform.position;
     }

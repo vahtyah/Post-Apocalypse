@@ -142,12 +142,13 @@ MonoBehaviour:
   data: {fileID: 11400000, guid: b25507c0eb1be4c49bb6004d4444054c, type: 2}
   agent: {fileID: 465027134586746723}
   animator: {fileID: 562970612947055262}
+  col: {fileID: 4425740795574737055}
   attackPosition: {fileID: 8770319358658784348}
   playerMask:
     serializedVersion: 2
     m_Bits: 64
-  state: 
   currentHealth: 0
+  state: 
 --- !u!195 &465027134586746723
 NavMeshAgent:
   m_ObjectHideFlags: 0

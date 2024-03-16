@@ -37,7 +37,7 @@ public class StraightProjectile : Projectile
             var player = other.GetComponent<Player>();
             health = player.Health;
         }
-        else
+        else if(sender.CompareTag(other.tag))
         {
             return;
         }

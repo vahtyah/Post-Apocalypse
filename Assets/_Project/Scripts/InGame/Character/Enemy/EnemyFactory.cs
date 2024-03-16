@@ -4,11 +4,10 @@ public static class EnemyFactory
 {
     public static Enemy Create(Enemy.Type type, Vector3 spawnPoint)
     {
-        var enemy = (NormalEnemy)EnemyPool.Instance.Get(type) ;
+        var enemy = EnemyPool.Instance.Get(type) ;
 
-        enemy.Movement.SetPosition(spawnPoint);
-        enemy.State.Reset();
-        enemy.Health.ResetHealth();
+        enemy.Action.SetPosition(spawnPoint);
+        enemy.Reset();
         
         return enemy;
     }

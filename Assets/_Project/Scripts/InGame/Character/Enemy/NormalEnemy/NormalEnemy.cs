@@ -6,6 +6,12 @@ public class NormalEnemy : Enemy
 
     public EnemyStateComponent State { get; private set; }
 
+    public override void Reset()
+    {
+        base.Reset();
+        State.Reset();
+    }
+
     protected override void Awake()
     {
         base.Awake();

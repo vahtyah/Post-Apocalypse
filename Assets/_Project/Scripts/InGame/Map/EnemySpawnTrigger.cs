@@ -4,18 +4,34 @@ using System.Collections.Generic;
 using System.Linq;
 using Sirenix.OdinInspector;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class EnemySpawnTrigger : SerializedMonoBehaviour
 {
     [SerializeField, InlineEditor] private LevelData levelData;
-    [SerializeField] private Dictionary<Transform, SpawnType> spawnPoints = new();
+    [SerializeField] private Door door;
+    private Transform[] spawnPoints;
     private ISpawnPoint spawner;
+    private bool isSpawned;
 
-    private void Start() { spawner = new RandomSpawnPoint(spawnPoints.Keys.ToArray()); }
+    private void Start()
+    {
+        spawnPoints = new Transform[transform.childCount];
+
+        for (int i = 0; i < transform.childCount; i++)
+        {
+            spawnPoints[i] = transform.GetChild(i);
+        }
+
+        spawner = new RandomSpawnPoint(spawnPoints);
+    }
 
     private void OnTriggerEnter(Collider other)
     {
-        if (!other.CompareTag("Player")) return;
+        if (!other.CompareTag("Player") || isSpawned) return;
+        EnemyPool.Instance.RemoveAllListeners();
+        EnemyPool.Instance.SetQuantityNeededReturn(levelData.GetTotalEnemy()).AddListenerOnAllObjectsReturned(door.Open);
+        isSpawned = true;
         StartCoroutine(IESpawnEnemies());
     }
 
@@ -33,10 +49,4 @@ public class EnemySpawnTrigger : SerializedMonoBehaviour
             yield return new WaitForSeconds(waveData.restInterval);
         }
     }
-}
-
-public enum SpawnType
-{
-    Single,
-    Group
 }

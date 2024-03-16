@@ -1,0 +1,281 @@
+fileFormatVersion: 2
+guid: 9877b0228259f34419ba39d8d26b4527
+ModelImporter:
+  serializedVersion: 21300
+  internalIDToNameTable: []
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Fence_01
+    second: {fileID: 2100000, guid: ed537ce4143e2374dbc5cbf43131dc2f, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Fence_02
+    second: {fileID: 2100000, guid: b0816e6d7e7d90a43af54f4f70e698b9, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Fence_04
+    second: {fileID: 2100000, guid: 0da534f5f29ffeb4da679acba5064acd, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Fence_05
+    second: {fileID: 2100000, guid: cd9593515a77d9640893f1f3a88262b0, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Fence_07
+    second: {fileID: 2100000, guid: 691d703b9382bfd45a4fd0da9f021927, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Highway_01
+    second: {fileID: 2100000, guid: 93fede99f785ef442a74701edbf100b4, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Highway_02
+    second: {fileID: 2100000, guid: caa89b81c604aa640b712351e7d84303, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Highway_04
+    second: {fileID: 2100000, guid: c1cffb4930f8e4141aab33a43234968c, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: M_wood_fence
+    second: {fileID: 2100000, guid: c1f779cb8d9bd2640a8a6490e29a90bc, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: T_bark
+    second: {fileID: 2100000, guid: 7378ad1e46f718943a8e330a79c4aaa7, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: TrafficSign_Tex
+    second: {fileID: 2100000, guid: 5bdd6de3ee0170c4fa655adcaa82579e, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Tree_Conifer_Leaf
+    second: {fileID: 2100000, guid: 2c580bdda2c8a63478f9516f5dfaeb86, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Tree_Conifer_Miki
+    second: {fileID: 2100000, guid: 7db779f756583eb49ab77e8596a36098, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: WreckedCarFX4
+    second: {fileID: 2100000, guid: c0adca38414986643a92fe8384158ccf, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: bg
+    second: {fileID: 2100000, guid: 0b94f13a8aca20743b9d37d68579d513, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: car_01
+    second: {fileID: 2100000, guid: 7dc833227dab7094c90d7add2f36f369, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: car_02
+    second: {fileID: 2100000, guid: ab7e6d38a9dd39e4f9973549f19d5b27, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: house_01
+    second: {fileID: 2100000, guid: 74a607e8983202e4fbcebf959b290df5, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: house_02
+    second: {fileID: 2100000, guid: ee12adea0df2b604dac64d1db7ff7ad5, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: house_03
+    second: {fileID: 2100000, guid: d17a5d8c2f8e90149ac016201c1f6a8f, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: house_04
+    second: {fileID: 2100000, guid: 744d6bebf442ec941b51270a57990c27, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: house_05
+    second: {fileID: 2100000, guid: d28f92eec0a74a64a9643de3ceec3853, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: house_06
+    second: {fileID: 2100000, guid: b5cc841f23ccd4141aef493d67f6e206, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: house_07
+    second: {fileID: 2100000, guid: 909bb6ffa99dcf044be8cf2d8ddf1ead, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: house_08
+    second: {fileID: 2100000, guid: f08a9d4c9439b034e9ad1115292947cb, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: house_10
+    second: {fileID: 2100000, guid: 1e8cd8854c9800648999a5d5ccf5f217, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: iteam_01
+    second: {fileID: 2100000, guid: 9c42d3b1157602a41b8ed3965b3faeac, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: iteam_02
+    second: {fileID: 2100000, guid: 631b2e0ea51f6904981279128acaedd1, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: lambert1
+    second: {fileID: 2100000, guid: b42e30504c29aff45a50f4a49fdf8f3f, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: newspaper
+    second: {fileID: 2100000, guid: 8a823f73f0378e941a1299d345e83a98, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: opendoor_01
+    second: {fileID: 2100000, guid: 133c761b684624943adfe2e2dd82b892, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: opendoor_02
+    second: {fileID: 2100000, guid: 3c9a8f41fa5ef87428b9c90570d521b5, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: san
+    second: {fileID: 2100000, guid: 4bae0552251e47147bcf74dc0a48a285, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: tree_tub
+    second: {fileID: 2100000, guid: 8521f69a0065c9a4388eda2411af0188, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: wire_BaseColor_tga
+    second: {fileID: 2100000, guid: e911fc46a1eca504bab9b072aa0ee3f8, type: 2}
+  materials:
+    materialImportMode: 2
+    materialName: 0
+    materialSearch: 1
+    materialLocation: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleCurves: 1
+    optimizeGameObjects: 0
+    removeConstantScaleCurves: 1
+    motionNodeName: 
+    rigImportErrors: 
+    rigImportWarnings: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    importAnimatedCustomProperties: 0
+    importConstraints: 0
+    animationCompression: 1
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    extraUserProperties: []
+    clipAnimations: []
+    isReadable: 0
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    useSRGBMaterialColor: 1
+    sortHierarchyByName: 1
+    importVisibility: 1
+    importBlendShapes: 1
+    importCameras: 1
+    importLights: 1
+    nodeNameCollisionStrategy: 1
+    fileIdsGeneration: 2
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    keepQuads: 0
+    weldVertices: 1
+    bakeAxisConversion: 0
+    preserveHierarchy: 0
+    skinWeightsMode: 0
+    maxBonesPerVertex: 4
+    minBoneWeight: 0.001
+    optimizeBones: 1
+    meshOptimizationFlags: -1
+    indexFormat: 0
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVMarginMethod: 1
+    secondaryUVMinLightmapResolution: 40
+    secondaryUVMinObjectScale: 1
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+    normalCalculationMode: 4
+    legacyComputeAllNormalsFromSmoothingGroupsWhenMeshHasBlendShapes: 0
+    blendShapeNormalImportMode: 1
+    normalSmoothingSource: 0
+  referencedClips: []
+  importAnimation: 1
+  humanDescription:
+    serializedVersion: 3
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    globalScale: 1
+    rootMotionBoneName: 
+    hasTranslationDoF: 0
+    hasExtraRoot: 0
+    skeletonHasParents: 1
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  autoGenerateAvatarMappingIfUnspecified: 1
+  animationType: 2
+  humanoidOversampling: 1
+  avatarSetup: 0
+  addHumanoidExtraRootOnlyWhenUsingAvatar: 1
+  remapMaterialsIfMaterialImportModeIsNone: 0
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

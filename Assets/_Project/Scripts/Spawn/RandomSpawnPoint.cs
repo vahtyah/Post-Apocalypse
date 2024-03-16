@@ -9,7 +9,6 @@ public class RandomSpawnPoint : ISpawnPoint
         this.spawnPoints = spawnPoints;
     }
 
-
     public Transform NextSpawnPoint()
     {
         var randomIndex = Random.Range(0, spawnPoints.Length);

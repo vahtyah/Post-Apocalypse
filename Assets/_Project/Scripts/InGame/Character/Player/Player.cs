@@ -3,7 +3,7 @@ using Sirenix.OdinInspector;
 using Sirenix.Serialization;
 using UnityEngine;
 
-public class Player : SerializedMonoBehaviour
+public class Player : SerializedSingleton<Player>
 {
     [BoxGroup("Enemy Stats"), HideLabel, NonSerialized, OdinSerialize, HideReferenceObjectPicker]
     public PlayerStats Stats = new();
@@ -27,8 +27,9 @@ public class Player : SerializedMonoBehaviour
 
     #endregion
 
-    private void Awake()
+    protected override void Awake()
     {
+        base.Awake();
         Animation = new PlayerAnimationComponent(anim);
         Movement = new PlayerMovementComponent(this);
         Weapon = new PlayerWeaponComponent(this);

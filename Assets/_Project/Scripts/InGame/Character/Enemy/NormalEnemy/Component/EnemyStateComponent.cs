@@ -21,7 +21,7 @@
 
     public void Reset()
     {
-        stateMachine.SetState(startState);
+        stateMachine.ChangeState(startState);
     }
 
     private class EnemyConditions

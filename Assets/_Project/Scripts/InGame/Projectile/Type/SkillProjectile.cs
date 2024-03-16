@@ -19,7 +19,7 @@ public class SkillProjectile : Projectile
             enemy = sender.GetComponent<Enemy>();
             if (enemy)
             {
-                enemy.Movement.StopByIsStopped();
+                enemy.Action.StopByIsStopped();
                 enemy.Animation.Play(EnemyAnimationState.CastSpell.ToString());
             }
             warning.SetActive(false);

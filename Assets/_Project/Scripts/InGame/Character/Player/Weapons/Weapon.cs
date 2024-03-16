@@ -1,8 +1,9 @@
-﻿using UnityEngine;
+﻿using Sirenix.OdinInspector;
+using UnityEngine;
 
 public class Weapon : MonoBehaviour, IWeapon
 {
-    [SerializeField] private WeaponData weaponData;
+    [SerializeField, InlineEditor] private WeaponData weaponData;
     [SerializeField] private Transform shootPos;
     [SerializeField] private ParticleSystem muzzle;
 

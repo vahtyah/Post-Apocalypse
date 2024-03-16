@@ -133,12 +133,13 @@ MonoBehaviour:
   data: {fileID: 11400000, guid: 95fccbc69b70b334f852088432e1a2e1, type: 2}
   agent: {fileID: 5303851047155155605}
   animator: {fileID: 7564728915417895879}
+  col: {fileID: 1560861299391711177}
   attackPosition: {fileID: 1134648505014062247}
   playerMask:
     serializedVersion: 2
     m_Bits: 64
-  state: 
   currentHealth: 0
+  state: 
 --- !u!1 &8996056058916692635
 GameObject:
   m_ObjectHideFlags: 0
