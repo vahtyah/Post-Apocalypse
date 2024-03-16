@@ -27,7 +27,7 @@ MonoBehaviour:
         mscorlib
     - Name: 
       Entry: 12
-      Data: 4
+      Data: 2
     - Name: 
       Entry: 7
       Data: 1|EnemyWaveData, Assembly-CSharp
@@ -42,7 +42,7 @@ MonoBehaviour:
       Data: 0.5
     - Name: restInterval
       Entry: 4
-      Data: 3
+      Data: 1
     - Name: 
       Entry: 8
       Data: 
@@ -54,46 +54,10 @@ MonoBehaviour:
       Data: 1
     - Name: amount
       Entry: 3
-      Data: 5
+      Data: 10
     - Name: spawnInterval
       Entry: 4
-      Data: 1
-    - Name: restInterval
-      Entry: 4
-      Data: 3
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: 
-      Entry: 7
-      Data: 3|EnemyWaveData, Assembly-CSharp
-    - Name: enemyType
-      Entry: 3
-      Data: 0
-    - Name: amount
-      Entry: 3
-      Data: 3
-    - Name: spawnInterval
-      Entry: 4
-      Data: 1
-    - Name: restInterval
-      Entry: 4
-      Data: 1
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: 
-      Entry: 7
-      Data: 4|EnemyWaveData, Assembly-CSharp
-    - Name: enemyType
-      Entry: 3
-      Data: 1
-    - Name: amount
-      Entry: 3
-      Data: 3
-    - Name: spawnInterval
-      Entry: 4
-      Data: 1
+      Data: 0.5
     - Name: restInterval
       Entry: 4
       Data: 0

@@ -117,7 +117,7 @@ GameObject:
   - component: {fileID: 4252490210448444945}
   - component: {fileID: 3267444664033293482}
   - component: {fileID: 2224316167940027785}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: FlameShrower
   m_TagString: Untagged
   m_Icon: {fileID: 0}

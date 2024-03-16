@@ -10,7 +10,7 @@ public class EnemyMoveState : EnemyState
     public override void OnUpdate()
     {
         base.OnUpdate();
-        // enemy.Action.MoveTo(player.position);
+        enemy.Action.MoveTo(player.position);
     }
 
     public override void OnExit()

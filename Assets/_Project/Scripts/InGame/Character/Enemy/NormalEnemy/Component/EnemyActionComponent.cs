@@ -16,6 +16,11 @@ public class EnemyActionComponent
     public void LookAt(Vector3 position) { agent.transform.LookAt(position); }
     public void SetEnableCollider(bool active) { collider.enabled = active;}
     public void Stop() { agent.ResetPath(); }
-    public void SetPosition(Vector3 spawnPoint) { agent.transform.position = spawnPoint; }
+    public void SetPosition(Vector3 spawnPoint)
+    {
+        agent.enabled = false;
+        agent.transform.position = spawnPoint;
+        agent.enabled = true;
+    }
     public void StopByIsStopped() { agent.isStopped = true; }
 }

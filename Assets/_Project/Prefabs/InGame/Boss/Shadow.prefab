@@ -161,7 +161,10 @@ MonoBehaviour:
     Prefab: {fileID: 0}
     PrefabModificationsReferencedUnityObjects: []
     PrefabModifications: []
-    SerializationNodes: []
+    SerializationNodes:
+    - Name: onDie
+      Entry: 6
+      Data: 
   data: {fileID: 11400000, guid: 34afd34760b71634692624efe57b8137, type: 2}
   agent: {fileID: 3836340921281958373}
   animator: {fileID: 7952747484689966478}
