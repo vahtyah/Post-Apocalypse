@@ -8,13 +8,5 @@ public class MapScene : MonoBehaviour
     private void Start()
     {
         Player.Instance.transform.position = playerStartPos.position;
-        // Invoke(nameof(SetPos), 2);
     }
-
-
-    void SetPos()
-    {
-        Player.Instance.transform.position = playerStartPos.position;
-    }
-    
 }

@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 17f6944d80ce40869085baa3a7c2a696, type: 3}
-  m_Name: Level3
+  m_Name: Level4Boss
   m_EditorClassIdentifier: 
   serializationData:
     SerializedFormat: 2
@@ -33,7 +33,7 @@ MonoBehaviour:
       Data: 1|EnemyWaveData, Assembly-CSharp
     - Name: enemyType
       Entry: 3
-      Data: 0
+      Data: 2
     - Name: amount
       Entry: 3
       Data: 1
