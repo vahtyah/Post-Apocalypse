@@ -10,7 +10,7 @@ public class MapManager : SerializedSingleton<MapManager>, IGameState
 
     private void Start()
     {
-        currentIndexMap = 0;
+        currentIndexMap = 1;
     }
 
     private void LoadMap(int index)

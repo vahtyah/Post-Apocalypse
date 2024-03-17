@@ -8,6 +8,11 @@ public class Teleport : MonoBehaviour, IGate
         gameObject.SetActive(true);
     }
 
+    public void Close()
+    {
+        
+    }
+
     private void OnTriggerEnter(Collider other)
     {
         Invoke("LoadMap", 1.5f);

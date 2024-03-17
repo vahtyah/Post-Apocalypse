@@ -9,7 +9,7 @@ using UnityEngine.Events;
 public class EnemySpawnTrigger : SerializedMonoBehaviour
 {
     [SerializeField, InlineEditor] private LevelData levelData;
-    [SerializeField] private IGate gate;
+    [SerializeField] private IGate gateToOpen;
     private Transform[] spawnPoints;
     private ISpawnPoint spawner;
     private bool isSpawned;
@@ -30,7 +30,7 @@ public class EnemySpawnTrigger : SerializedMonoBehaviour
     {
         if (!other.CompareTag("Player") || isSpawned) return;
         EnemyPool.Instance.RemoveAllListeners();
-        EnemyPool.Instance.SetQuantityNeededReturn(levelData.GetTotalEnemy()).AddListenerOnAllObjectsReturned(gate.Open);
+        EnemyPool.Instance.SetQuantityNeededReturn(levelData.GetTotalEnemy()).AddListenerOnAllObjectsReturned(gateToOpen.Open);
         isSpawned = true;
         StartCoroutine(IESpawnEnemies());
     }
