@@ -9,18 +9,22 @@ public interface IGate
     void Close();
 }
 
-public class Gate : MonoBehaviour, IGate
+public class Gate : SerializedMonoBehaviour, IGate
 {
     [SerializeField] private Vector3 positionOpen;
     private Vector3 originalPos;
-    
-    [SerializeField] private bool hasABoss;
-    [SerializeField, ShowIf("hasABoss")] private Enemy.Type bossType;
-    [SerializeField, ShowIf("hasABoss")] private Transform posSpawnBoss;
 
+    [SerializeField] private bool hasABoss;
+    [SerializeField, ShowIf("hasABoss")] private Enemy.Type[] bossType;
+    [SerializeField, ShowIf("hasABoss")] private IGate teleport;
+    [SerializeField, ShowIf("hasABoss")] private Transform[] bossSpawnPos;
+    private ISpawnPoint spawner;
+
+    
     private void Start()
     {
         originalPos = transform.localPosition;
+        spawner = new RandomSpawnPoint(bossSpawnPos);
     }
 
     [Button]
@@ -28,12 +32,17 @@ public class Gate : MonoBehaviour, IGate
     {
         transform.DOLocalMove(positionOpen, 2).SetEase(Ease.OutBounce);
         if (hasABoss)
-            EnemyFactory.Create(bossType, posSpawnBoss.position);
+        {
+            EnemyPool.Instance.RemoveAllListeners();
+            EnemyPool.Instance.SetQuantityNeededReturn(bossType.Length).AddListenerOnAllObjectsReturned(teleport.Open);
+            foreach (var type in bossType)
+            {
+                var point = spawner.NextSpawnPoint();
+                EnemyFactory.Create(type, point.position);
+            }
+        }
     }
 
     [Button]
-    public void Close()
-    {
-        transform.DOLocalMove(originalPos, 2).SetEase(Ease.OutBounce);
-    }
+    public void Close() { transform.DOLocalMove(originalPos, 2).SetEase(Ease.OutBounce); }
 }

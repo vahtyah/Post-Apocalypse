@@ -285,7 +285,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5140667289111919394}
-  - component: {fileID: 9216212737190431854}
   m_Layer: 0
   m_Name: BossSpawnPos
   m_TagString: Untagged
@@ -305,36 +304,9 @@ Transform:
   m_LocalPosition: {x: -17.34, y: 0, z: 15.25}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children:
-  - {fileID: 5213151049105537499}
+  m_Children: []
   m_Father: {fileID: 4290935462971761885}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &9216212737190431854
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2831746397842443811}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f86c6f54f0574e9ea95936a702c8cab0, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  serializationData:
-    SerializedFormat: 2
-    SerializedBytes: 
-    ReferencedUnityObjects:
-    - {fileID: 8837137217187634194}
-    SerializedBytesString: 
-    Prefab: {fileID: 0}
-    PrefabModificationsReferencedUnityObjects: []
-    PrefabModifications: []
-    SerializationNodes:
-    - Name: gate
-      Entry: 10
-      Data: 0
-  levelData: {fileID: 11400000, guid: 20673092fac3f674aa28f19b4b894425, type: 2}
 --- !u!1 &3104669297897949450
 GameObject:
   m_ObjectHideFlags: 0
@@ -440,16 +412,15 @@ MonoBehaviour:
   serializationData:
     SerializedFormat: 2
     SerializedBytes: 
-    ReferencedUnityObjects:
-    - {fileID: 6887344827477952036}
+    ReferencedUnityObjects: []
     SerializedBytesString: 
     Prefab: {fileID: 0}
     PrefabModificationsReferencedUnityObjects: []
     PrefabModifications: []
     SerializationNodes:
-    - Name: gate
-      Entry: 10
-      Data: 0
+    - Name: gateToOpen
+      Entry: 6
+      Data: 
   levelData: {fileID: 11400000, guid: f9342173689e6b24d97a7b40da98931b, type: 2}
 --- !u!1 &4227922062837124346
 GameObject:
@@ -797,37 +768,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 5969732632220288062}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &6597029132036480563
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 5213151049105537499}
-  m_Layer: 0
-  m_Name: GameObject
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &5213151049105537499
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6597029132036480563}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 5140667289111919394}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &6738813527581427324
 GameObject:
   m_ObjectHideFlags: 0
@@ -886,16 +826,15 @@ MonoBehaviour:
   serializationData:
     SerializedFormat: 2
     SerializedBytes: 
-    ReferencedUnityObjects:
-    - {fileID: 2906010442436107691}
+    ReferencedUnityObjects: []
     SerializedBytesString: 
     Prefab: {fileID: 0}
     PrefabModificationsReferencedUnityObjects: []
     PrefabModifications: []
     SerializationNodes:
-    - Name: gate
-      Entry: 10
-      Data: 0
+    - Name: gateToOpen
+      Entry: 6
+      Data: 
   levelData: {fileID: 11400000, guid: 8e641d558cbd6524f9227061bcb24701, type: 2}
 --- !u!65 &3048139112006599972
 BoxCollider:
@@ -1202,16 +1141,15 @@ MonoBehaviour:
   serializationData:
     SerializedFormat: 2
     SerializedBytes: 
-    ReferencedUnityObjects:
-    - {fileID: 7914018479821253736}
+    ReferencedUnityObjects: []
     SerializedBytesString: 
     Prefab: {fileID: 0}
     PrefabModificationsReferencedUnityObjects: []
     PrefabModifications: []
     SerializationNodes:
-    - Name: gate
-      Entry: 10
-      Data: 0
+    - Name: gateToOpen
+      Entry: 6
+      Data: 
   levelData: {fileID: 11400000, guid: 3b88b13fc4f2aa443b89146c3edfd108, type: 2}
 --- !u!1 &8618242242826721701
 GameObject:
@@ -1549,10 +1487,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: df81ba60a5ea43b0850a01ed153ceeb1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  serializationData:
+    SerializedFormat: 2
+    SerializedBytes: 
+    ReferencedUnityObjects: []
+    SerializedBytesString: 
+    Prefab: {fileID: 0}
+    PrefabModificationsReferencedUnityObjects: []
+    PrefabModifications: []
+    SerializationNodes:
+    - Name: teleport
+      Entry: 6
+      Data: 
   positionOpen: {x: 0, y: 0, z: 5.79}
   hasABoss: 0
-  bossType: 0
-  posSpawnBoss: {fileID: 0}
+  bossType: 
+  bossSpawnPos: []
 --- !u!65 &5266703015137609050
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -1591,10 +1541,24 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: df81ba60a5ea43b0850a01ed153ceeb1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  serializationData:
+    SerializedFormat: 2
+    SerializedBytes: 
+    ReferencedUnityObjects:
+    - {fileID: 8837137217187634194}
+    SerializedBytesString: 
+    Prefab: {fileID: 0}
+    PrefabModificationsReferencedUnityObjects: []
+    PrefabModifications: []
+    SerializationNodes:
+    - Name: teleport
+      Entry: 10
+      Data: 0
   positionOpen: {x: 0, y: 0, z: 5.86}
   hasABoss: 1
-  bossType: 2
-  posSpawnBoss: {fileID: 5140667289111919394}
+  bossType: 02000000
+  bossSpawnPos:
+  - {fileID: 5140667289111919394}
 --- !u!65 &3263328181615033215
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -1660,10 +1624,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: df81ba60a5ea43b0850a01ed153ceeb1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  serializationData:
+    SerializedFormat: 2
+    SerializedBytes: 
+    ReferencedUnityObjects: []
+    SerializedBytesString: 
+    Prefab: {fileID: 0}
+    PrefabModificationsReferencedUnityObjects: []
+    PrefabModifications: []
+    SerializationNodes:
+    - Name: teleport
+      Entry: 6
+      Data: 
   positionOpen: {x: -5.67, y: 0, z: 0}
   hasABoss: 0
-  bossType: 0
-  posSpawnBoss: {fileID: 0}
+  bossType: 
+  bossSpawnPos: []
 --- !u!65 &6353149938203410941
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -1702,10 +1678,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: df81ba60a5ea43b0850a01ed153ceeb1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  serializationData:
+    SerializedFormat: 2
+    SerializedBytes: 
+    ReferencedUnityObjects: []
+    SerializedBytesString: 
+    Prefab: {fileID: 0}
+    PrefabModificationsReferencedUnityObjects: []
+    PrefabModifications: []
+    SerializationNodes:
+    - Name: teleport
+      Entry: 6
+      Data: 
   positionOpen: {x: -5.83, y: 0, z: 0}
   hasABoss: 0
-  bossType: 0
-  posSpawnBoss: {fileID: 0}
+  bossType: 
+  bossSpawnPos: []
 --- !u!65 &8655638203146866829
 BoxCollider:
   m_ObjectHideFlags: 0
