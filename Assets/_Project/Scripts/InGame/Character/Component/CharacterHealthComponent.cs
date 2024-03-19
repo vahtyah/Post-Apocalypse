@@ -37,6 +37,8 @@ public class CharacterHealthComponent : IHealable, IDamageable
 
     public void ResetHealth() { CurrentHealth = MaxHealth; }
 
+    public float GetHealthAmountNormalized() => (float)currentHealth / maxHealth;
+
     public void AddOnDieListener(Action _onDie) { OnDie += _onDie; }
 
     public void RemoveOnDieListener(Action _onDie) { OnDie -= _onDie; }

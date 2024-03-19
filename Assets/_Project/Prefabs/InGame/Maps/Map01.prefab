@@ -412,15 +412,16 @@ MonoBehaviour:
   serializationData:
     SerializedFormat: 2
     SerializedBytes: 
-    ReferencedUnityObjects: []
+    ReferencedUnityObjects:
+    - {fileID: 6887344827477952036}
     SerializedBytesString: 
     Prefab: {fileID: 0}
     PrefabModificationsReferencedUnityObjects: []
     PrefabModifications: []
     SerializationNodes:
     - Name: gateToOpen
-      Entry: 6
-      Data: 
+      Entry: 10
+      Data: 0
   levelData: {fileID: 11400000, guid: f9342173689e6b24d97a7b40da98931b, type: 2}
 --- !u!1 &4227922062837124346
 GameObject:
@@ -826,15 +827,16 @@ MonoBehaviour:
   serializationData:
     SerializedFormat: 2
     SerializedBytes: 
-    ReferencedUnityObjects: []
+    ReferencedUnityObjects:
+    - {fileID: 2906010442436107691}
     SerializedBytesString: 
     Prefab: {fileID: 0}
     PrefabModificationsReferencedUnityObjects: []
     PrefabModifications: []
     SerializationNodes:
     - Name: gateToOpen
-      Entry: 6
-      Data: 
+      Entry: 10
+      Data: 0
   levelData: {fileID: 11400000, guid: 8e641d558cbd6524f9227061bcb24701, type: 2}
 --- !u!65 &3048139112006599972
 BoxCollider:
@@ -1141,15 +1143,16 @@ MonoBehaviour:
   serializationData:
     SerializedFormat: 2
     SerializedBytes: 
-    ReferencedUnityObjects: []
+    ReferencedUnityObjects:
+    - {fileID: 7914018479821253736}
     SerializedBytesString: 
     Prefab: {fileID: 0}
     PrefabModificationsReferencedUnityObjects: []
     PrefabModifications: []
     SerializationNodes:
     - Name: gateToOpen
-      Entry: 6
-      Data: 
+      Entry: 10
+      Data: 0
   levelData: {fileID: 11400000, guid: 3b88b13fc4f2aa443b89146c3edfd108, type: 2}
 --- !u!1 &8618242242826721701
 GameObject:

@@ -17,4 +17,4 @@ MonoBehaviour:
   Prefab: {fileID: 1552972738058363086, guid: de0b43e364da7614da0ee5546171f4e3, type: 3}
   ProjectileType: 1
   Cooldown: 0.1
-  Damage: 93
+  Damage: 10
