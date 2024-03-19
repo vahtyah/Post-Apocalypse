@@ -1,16 +1,26 @@
 ﻿using System;
 using System.Collections.Generic;
+using Sirenix.OdinInspector;
 using UnityEngine;
 
 public class MapManager : SerializedSingleton<MapManager>, IGameState
 {
     [SerializeField] private List<MapScene> mapScenes;
-    private MapScene currentMap;
-    private int currentIndexMap;
+    [ShowInInspector] private MapScene currentMap;
+    [ShowInInspector] private int currentIndexMap;
 
-    private void Start()
+    protected override void Awake()
     {
-        currentIndexMap = 1;
+        base.Awake();
+        currentIndexMap = 0;
+    }
+
+    private void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.Space))
+        {
+            Player.Instance.transform.position = Vector3.zero;
+        }
     }
 
     private void LoadMap(int index)
@@ -18,11 +28,8 @@ public class MapManager : SerializedSingleton<MapManager>, IGameState
         currentIndexMap = index;
         if (currentIndexMap >= mapScenes.Count) return;
         if (currentMap != null)
-        {
-            GameObject o;
-            (o = currentMap.gameObject).SetActive(false);
-            Destroy(o);
-        }
+            Destroy(currentMap.gameObject);
+
         currentMap = Instantiate(mapScenes[currentIndexMap]);
     }
 
@@ -36,12 +43,13 @@ public class MapManager : SerializedSingleton<MapManager>, IGameState
             Destroy(o);
         }
 
-        currentMap = Instantiate(mapScenes[currentIndexMap++]);
+        currentMap = Instantiate(mapScenes[currentIndexMap]);
+        currentIndexMap += 1;
     }
 
     public void OnGameStateChangedHandler(GameState gameState)
     {
-        if(gameState == GameState.Start)
+        if (gameState == GameState.Start)
             LoadNextMap();
     }
 }

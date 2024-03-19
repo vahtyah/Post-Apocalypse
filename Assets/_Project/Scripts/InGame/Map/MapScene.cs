@@ -8,5 +8,6 @@ public class MapScene : MonoBehaviour
     private void Start()
     {
         Player.Instance.transform.position = playerStartPos.position;
+        Debug.Log(playerStartPos.position);
     }
 }

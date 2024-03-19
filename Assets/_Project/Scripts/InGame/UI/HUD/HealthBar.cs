@@ -9,12 +9,12 @@ public class HealthBar : MonoBehaviour
 
     [SerializeField] private Enemy enemy;
 
-    private Camera camera;
+    private Camera mainCamera;
     private CharacterHealthComponent healthComponent;
 
-    private void Awake()
+    private void Start()
     {
-        camera = Camera.main;
+        mainCamera = Camera.main;
         healthComponent = enemy.Health;
         healthComponent.AddOnChangeHealthListener(UpdateHealthBar);
         healthComponent.AddOnDieListener(() =>
@@ -25,10 +25,8 @@ public class HealthBar : MonoBehaviour
     }
     private void Update()
     {
-        if (camera != null) transform.LookAt(transform.position + camera.transform.forward);
+        if (mainCamera != null) transform.LookAt(transform.position + mainCamera.transform.forward);
     }
-
-    private void SetColorByFillValue() { imageFill.color = color.Evaluate(imageFill.fillAmount); }
 
     private void UpdateHealthBar(float currentHealth)
     {
@@ -36,4 +34,6 @@ public class HealthBar : MonoBehaviour
         SetColorByFillValue();
         gameObject.SetActive(imageFill.fillAmount < 1);
     }
+
+    private void SetColorByFillValue() { imageFill.color = color.Evaluate(imageFill.fillAmount); }
 }
