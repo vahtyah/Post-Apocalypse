@@ -9,6 +9,7 @@ public class EnemyAttackState : EnemyState
     public override void OnUpdate()
     {
         base.OnUpdate();
-        enemy.Attack.Attack();
+        if (enemy.Attack.CanAttack())
+            enemy.Attack.Attack();
     }
 }

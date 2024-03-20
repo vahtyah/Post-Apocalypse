@@ -15,14 +15,6 @@ public class MapManager : SerializedSingleton<MapManager>, IGameState
         currentIndexMap = 0;
     }
 
-    private void Update()
-    {
-        if (Input.GetKeyDown(KeyCode.Space))
-        {
-            Player.Instance.transform.position = Vector3.zero;
-        }
-    }
-
     private void LoadMap(int index)
     {
         currentIndexMap = index;
@@ -37,11 +29,7 @@ public class MapManager : SerializedSingleton<MapManager>, IGameState
     {
         if (currentIndexMap >= mapScenes.Count) return;
         if (currentMap != null)
-        {
-            GameObject o;
-            (o = currentMap.gameObject).SetActive(false);
-            Destroy(o);
-        }
+            Destroy(currentMap.gameObject);
 
         currentMap = Instantiate(mapScenes[currentIndexMap]);
         currentIndexMap += 1;

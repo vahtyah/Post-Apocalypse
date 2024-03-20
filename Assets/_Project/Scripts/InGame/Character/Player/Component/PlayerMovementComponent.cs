@@ -54,4 +54,6 @@ public class PlayerMovementComponent
             player.transform.eulerAngles = new Vector3(0, player.transform.eulerAngles.y, 0);
         }
     }
+
+    public void SetPosition(Vector3 position) => player.transform.position = position;
 }

@@ -8,6 +8,13 @@ public class MapScene : MonoBehaviour
     private void Start()
     {
         Player.Instance.transform.position = playerStartPos.position;
-        Debug.Log(playerStartPos.position);
+    }
+
+    private void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.Space))
+        {
+            Player.Instance.Movement.SetPosition(playerStartPos.position);
+        }
     }
 }
