@@ -23,7 +23,7 @@ public class Player : SerializedSingleton<Player>
     public PlayerMovementComponent Movement { get; private set; }
     public PlayerStateComponent State { get; private set; }
     public PlayerWeaponComponent Weapon { get; private set; }
-    public CharacterHealthComponent Health { get; private set; }
+    public PlayerHealthComponent Health { get; private set; }
 
     #endregion
 
@@ -33,8 +33,12 @@ public class Player : SerializedSingleton<Player>
         Animation = new PlayerAnimationComponent(anim);
         Movement = new PlayerMovementComponent(this);
         Weapon = new PlayerWeaponComponent(this);
-        Health = new CharacterHealthComponent(Stats.Health);
+        Health = new PlayerHealthComponent(Stats);
         State = new PlayerStateComponent(this);
+    }
+
+    private void Start()
+    {
         Weapon.SetWeapon(WeaponType.ScarL);
     }
 

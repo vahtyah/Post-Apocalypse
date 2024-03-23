@@ -10,7 +10,7 @@ public class Weapon : MonoBehaviour, IWeapon
     CountdownTimer cooldownTimer;
     private IProjectileFactory bulletFactory;
 
-    private void Start()
+    private void Awake()
     {
         cooldownTimer = new CountdownTimer(weaponData.Cooldown);
         bulletFactory = new ProjectileFactory();

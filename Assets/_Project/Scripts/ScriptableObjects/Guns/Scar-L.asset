@@ -12,9 +12,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6a9c634846ad443093ceeab782c2a36b, type: 3}
   m_Name: Scar-L
   m_EditorClassIdentifier: 
-  Icon: {fileID: 0}
-  Name: 
+  Icon: {fileID: 21300000, guid: 34d4da43889f5d24d92bf1a4c4b924e9, type: 3}
+  Name: ScarL
+  Description: HeHE
   Prefab: {fileID: 1552972738058363086, guid: de0b43e364da7614da0ee5546171f4e3, type: 3}
+  Type: 1
+  Modifiers:
+    stats: []
+  WeaponType: 1
   ProjectileType: 1
   Cooldown: 0.1
   Damage: 10

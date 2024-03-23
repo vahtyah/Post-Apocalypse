@@ -25,6 +25,8 @@ public class StatsList
         set => stats[index] = value;
     }
 
+    public List<StatsValue> Stats => stats;
+
     public int Count => stats.Count;
 #if UNITY_EDITOR
     // Finds all available stat-types and excludes the types that the statList already contains, so we don't get multiple entries of the same type.
@@ -73,5 +75,8 @@ public enum StatsType
     Speed,
     Mana,
     AttackRange,
-    AttackSpeed
+    AttackSpeed,
+    Armor,
+    Critical,
+    CriticalDamage,
 }

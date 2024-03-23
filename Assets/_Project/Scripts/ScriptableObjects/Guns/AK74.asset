@@ -12,9 +12,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6a9c634846ad443093ceeab782c2a36b, type: 3}
   m_Name: AK74
   m_EditorClassIdentifier: 
-  Icon: {fileID: 0}
-  Name: 
+  Icon: {fileID: 21300000, guid: fdc9bf0b49fd0594b872292db632c009, type: 3}
+  Name: AK74
+  Description: HEHE
   Prefab: {fileID: 8883368133887733848, guid: c442f61339301af46addf7ac6fad4cc8, type: 3}
+  Type: 1
+  Modifiers:
+    stats: []
+  WeaponType: 0
   ProjectileType: 0
   Cooldown: 0.2
   Damage: 0

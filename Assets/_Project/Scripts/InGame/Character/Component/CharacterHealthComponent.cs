@@ -1,19 +1,19 @@
 ﻿using System;
 using UnityEngine;
 
-public class CharacterHealthComponent : IHealable, IDamageable
+public class CharacterHealthComponent<S> : IHealable, IDamageable where S : Stats
 {
+    protected S stats;
     private float currentHealth;
-    private float maxHealth;
     public Action OnDie;
-    public Action<float> OnChangeHealth { get; private set; }
+    private Action<float> OnChangeHealth { get; set; }
 
     public float CurrentHealth
     {
         get => currentHealth;
         private set
         {
-            currentHealth = Mathf.Clamp(value, 0, maxHealth);
+            currentHealth = Mathf.Clamp(value, 0, MaxHealth);
             OnChangeHealth?.Invoke(currentHealth);
             if (currentHealth <= 0) OnDie?.Invoke();
         }
@@ -21,23 +21,23 @@ public class CharacterHealthComponent : IHealable, IDamageable
 
     public float MaxHealth
     {
-        get => maxHealth;
-        private set => maxHealth = Mathf.Max(value, 0);
+        get => stats.MaxHealth;
+        private set => stats.MaxHealth = Mathf.Max(value, 0);
     }
 
-    public CharacterHealthComponent(float _maxHealth)
+    public CharacterHealthComponent(S stats)
     {
-        MaxHealth = _maxHealth;
+        this.stats = stats;
         CurrentHealth = MaxHealth;
     }
 
-    public void TakeDamage(float _damage) { CurrentHealth -= _damage; }
+    public virtual void TakeDamage(float _damage) { CurrentHealth -= _damage; }
 
     public void Heal(float _heal) { CurrentHealth += _heal; }
 
     public void ResetHealth() { CurrentHealth = MaxHealth; }
 
-    public float GetHealthAmountNormalized() => (float)currentHealth / maxHealth;
+    public float GetHealthAmountNormalized() => (float)CurrentHealth / MaxHealth;
 
     public void AddOnDieListener(Action _onDie) { OnDie += _onDie; }
 

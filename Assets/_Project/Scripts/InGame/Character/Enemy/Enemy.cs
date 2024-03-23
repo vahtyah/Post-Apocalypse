@@ -21,7 +21,7 @@ public abstract class Enemy : SerializedMonoBehaviour
     public EnemyAnimationComponent Animation { get; private set; }
     public EnemyActionComponent Action { get; private set; }
     public EnemyAttackComponent Attack { get; protected set; }
-    public CharacterHealthComponent Health { get; protected set; }
+    public EnemyHealthComponent Health { get; protected set; }
 
     public virtual void Reset()
     {
@@ -30,7 +30,7 @@ public abstract class Enemy : SerializedMonoBehaviour
     
     protected virtual void Awake()
     {
-        Health = new CharacterHealthComponent(data.Stats.Health);
+        Health = new EnemyHealthComponent(data.Stats);
         Animation = new EnemyAnimationComponent(animator);
         Action = new EnemyActionComponent(agent, col);
     }

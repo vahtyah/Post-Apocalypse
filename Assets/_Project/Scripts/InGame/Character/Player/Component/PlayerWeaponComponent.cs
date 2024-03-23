@@ -1,16 +1,20 @@
-﻿using UnityEngine;
+﻿using BehaviorDesigner.Runtime.Tasks.Unity.UnityGameObject;
+using UnityEngine;
 
 public class PlayerWeaponComponent
 {
     Player player;
     private IWeapon weapon;
+    private GameObject currentWeapon;
 
     public PlayerWeaponComponent(Player player) { this.player = player; }
 
     public void SetWeapon(WeaponType weaponType)
     {
+        if (currentWeapon != null) Object.Destroy(currentWeapon);
         var weaponPrefab = WeaponHolder.Instance.GetWeapon(weaponType).Prefab;
-        weapon = Object.Instantiate(weaponPrefab, player.GetRightHand()).GetComponent<IWeapon>();
+        currentWeapon = Object.Instantiate(weaponPrefab, player.GetRightHand());
+        weapon = currentWeapon.GetComponent<IWeapon>();
     }
 
     public void Shoot()
