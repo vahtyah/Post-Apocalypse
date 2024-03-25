@@ -1,23 +1,17 @@
-﻿using UnityEngine;
+﻿using System;
+using UnityEngine;
 
 public class EquipmentUISlot : UISlot
 {
     private Player player;
 
-    protected override void Start()
+    private void Start()
     {
-        base.Start();
         player = InGameManager.Instance.GetPlayer();
     }
 
     public override UISlot SetItem(Item item)
     {
-        if (item != null && item.Type == ItemType.Weapon)
-        {
-            var weapon = item as WeaponData;
-            if (weapon != null) player.Weapon.SetWeapon(weapon.WeaponType);
-        }
-
         if (Item != null)
         {
             player.Stats.RemoveModifiers((Item as EquipableItem)?.Modifiers);

@@ -37,10 +37,10 @@ public class Player : SerializedSingleton<Player>
         State = new PlayerStateComponent(this);
     }
 
-    private void Start()
-    {
-        Weapon.SetWeapon(WeaponType.ScarL);
-    }
+    // private void Start()
+    // {
+    //     Weapon.SetWeapon(WeaponType.ScarL);
+    // }
 
     private void Update()
     {

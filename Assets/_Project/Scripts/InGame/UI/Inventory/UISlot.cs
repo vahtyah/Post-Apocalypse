@@ -1,14 +1,15 @@
-﻿using UnityEngine;
+﻿using Sirenix.OdinInspector;
+using UnityEngine;
 using UnityEngine.UI;
 
 public class UISlot : MonoBehaviour
 {
     [SerializeField] private Image image;
-    [SerializeField] private ItemType allowedType;
+    [SerializeField] protected ItemType allowedType;
     public Item Item;
-    private Sprite originalSprite;
+    [ShowInInspector] private Sprite originalSprite;
 
-    protected virtual void Start()
+    protected virtual void Awake()
     {
         originalSprite = image.sprite;
         UpdateUI();
@@ -20,7 +21,7 @@ public class UISlot : MonoBehaviour
         return this;
     }
 
-    public bool SwapItem(UISlot uiSlot)
+    public virtual bool SwapItem(UISlot uiSlot)
     {
         if (!IsValidSwap(Item, uiSlot.allowedType) || !IsValidSwap(uiSlot.Item, allowedType))
             return false;
@@ -31,7 +32,7 @@ public class UISlot : MonoBehaviour
         return true;
     }
 
-    private bool IsValidSwap(Item item, ItemType type)
+    protected bool IsValidSwap(Item item, ItemType type)
         => item == null || item.Type == type || item.Type == ItemType.Any || type == ItemType.Any;
 
     public void ClearImage() => UpdateUI(true);

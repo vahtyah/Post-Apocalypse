@@ -19,7 +19,7 @@ public class PlayerWeaponComponent
 
     public void Shoot()
     {
-        if (weapon.CanShoot())
+        if (weapon != null && weapon.CanShoot())
             weapon.Shoot();
     }
 }
