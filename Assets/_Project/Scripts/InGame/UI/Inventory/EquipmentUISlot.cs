@@ -4,16 +4,19 @@ using UnityEngine;
 public class EquipmentUISlot : UISlot
 {
     private Player player;
-    private InventoryManager inventory;
 
-    private void Start()
+    protected override void Start()
     {
-        inventory = InventoryManager.Instance;
+        InventoryManager.Instance.Equipment.TryGetValue(allowedType, out var item);
         player = InGameManager.Instance.GetPlayer();
+        SetItem(item);
+        Debug.Log("VAR " + player);
+        base.Start();
     }
 
     public override UISlot SetItem(Item item)
     {
+        Debug.Log(player);
         if (Item != null)
         {
             player.Stats.RemoveModifiers((Item as EquipableItem)?.Modifiers);

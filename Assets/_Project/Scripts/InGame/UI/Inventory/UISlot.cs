@@ -1,4 +1,5 @@
-﻿using Sirenix.OdinInspector;
+﻿using BehaviorDesigner.Runtime.Tasks;
+using Sirenix.OdinInspector;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -11,7 +12,7 @@ public class UISlot : MonoBehaviour
     public int row { get; private set; } = -1;
     public int col { get; private set; } = -1;
 
-    protected virtual void Awake()
+    protected virtual void Start()
     {
         originalSprite = image.sprite;
         UpdateUI();
@@ -63,12 +64,17 @@ public class UISlot : MonoBehaviour
     {
         if (row < 0 || col < 0) //Drop
         {
+            Debug.Log("Drop");
             InventoryManager.Instance.SetItemInventory(uiSlot.row, uiSlot.col, uiSlot.Item); //Item has been updated before
+            InventoryManager.Instance.SetItemEquipment(uiSlot.Item.Type, Item);
             return;
         }
         if(uiSlot.row < 0 || uiSlot.col < 0) //Drag
         {
+            Debug.Log("Drag");
             InventoryManager.Instance.SetItemInventory(row, col, Item); //Item has been updated before
+            Debug.Log("uiSlot.Item.name = " + uiSlot.Item.name);
+            if(uiSlot.Item != null) InventoryManager.Instance.SetItemEquipment(uiSlot.Item.Type, uiSlot.Item);
             return;
         }
 

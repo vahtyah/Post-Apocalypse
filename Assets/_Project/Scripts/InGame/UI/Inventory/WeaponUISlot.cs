@@ -4,10 +4,11 @@ public class WeaponUISlot : UISlot
 {
     private Player player;
 
-    private void Start()
+    protected override void Start()
     {
         player = InGameManager.Instance.GetPlayer();
-        SetItem(InventoryManager.Instance.StartWeapon).UpdateUI();
+        SetItem(InventoryManager.Instance.Equipment[allowedType]);
+        base.Start();
     }
     public override UISlot SetItem(Item item)
     {
