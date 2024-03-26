@@ -7,7 +7,7 @@ public class WeaponUISlot : UISlot
     private void Start()
     {
         player = InGameManager.Instance.GetPlayer();
-        SetItem(Inventory.Instance.StartWeapon).UpdateUI();
+        SetItem(InventoryManager.Instance.StartWeapon).UpdateUI();
     }
     public override UISlot SetItem(Item item)
     {

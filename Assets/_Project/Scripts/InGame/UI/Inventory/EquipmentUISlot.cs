@@ -4,9 +4,11 @@ using UnityEngine;
 public class EquipmentUISlot : UISlot
 {
     private Player player;
+    private InventoryManager inventory;
 
     private void Start()
     {
+        inventory = InventoryManager.Instance;
         player = InGameManager.Instance.GetPlayer();
     }
 

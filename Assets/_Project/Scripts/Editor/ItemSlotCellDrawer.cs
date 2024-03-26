@@ -17,7 +17,9 @@ public class ItemSlotCellDrawer<TArray> : TwoDimensionalArrayDrawer<TArray, Item
             SquareCells = true,
             HideColumnIndices = true,
             HideRowIndices = true,
-            ResizableColumns = false
+            ResizableColumns = false,
+            RespectIndentLevel = true,
+            Transpose = true
         };
     }
 
@@ -47,6 +49,7 @@ public class ItemSlotCellDrawer<TArray> : TwoDimensionalArrayDrawer<TArray, Item
         var id = DragAndDropUtilities.GetDragAndDropId(rect);
         DragAndDropUtilities.DrawDropZone(rect, null as UnityEngine.Object, null, id);
         DragAndDropUtilities.DropZone<ItemSlot>(rect, new ItemSlot(), false, id);
+        GUI.Label(rect, "Remove Zone", SirenixGUIStyles.CenteredWhiteMiniLabel);
     }
 }
 #endif
