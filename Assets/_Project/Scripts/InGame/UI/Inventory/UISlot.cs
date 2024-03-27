@@ -7,16 +7,10 @@ public class UISlot : MonoBehaviour
 {
     [SerializeField] private Image image;
     [SerializeField] protected ItemType allowedType;
-    [ShowInInspector] private Sprite originalSprite;
-    public Item Item;
-    public int row { get; private set; } = -1;
-    public int col { get; private set; } = -1;
-
-    protected virtual void Start()
-    {
-        originalSprite = image.sprite;
-        UpdateUI();
-    }
+    [SerializeField] private Sprite originalSprite;
+    public Item Item { get; private set; }
+    protected internal int row { get; private set; } = -1;
+    protected internal int col { get; private set; } = -1;
 
     public virtual UISlot SetItem(Item item)
     {
@@ -64,16 +58,13 @@ public class UISlot : MonoBehaviour
     {
         if (row < 0 || col < 0) //Drop
         {
-            Debug.Log("Drop");
             InventoryManager.Instance.SetItemInventory(uiSlot.row, uiSlot.col, uiSlot.Item); //Item has been updated before
             InventoryManager.Instance.SetItemEquipment(uiSlot.Item.Type, Item);
             return;
         }
         if(uiSlot.row < 0 || uiSlot.col < 0) //Drag
         {
-            Debug.Log("Drag");
             InventoryManager.Instance.SetItemInventory(row, col, Item); //Item has been updated before
-            Debug.Log("uiSlot.Item.name = " + uiSlot.Item.name);
             if(uiSlot.Item != null) InventoryManager.Instance.SetItemEquipment(uiSlot.Item.Type, uiSlot.Item);
             return;
         }

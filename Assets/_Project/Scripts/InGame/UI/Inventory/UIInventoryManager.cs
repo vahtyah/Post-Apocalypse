@@ -1,9 +1,12 @@
 ﻿using System;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class UIInventoryManager : MonoBehaviour
 {
     [SerializeField] private UISlot uiSlotPrefab;
+    [SerializeField] private Button dropItem;
+    [SerializeField] private MouseUISlotDrag dragDrop;
     private InventoryManager inventory;
 
     private void Start()
@@ -21,5 +24,20 @@ public class UIInventoryManager : MonoBehaviour
                     uiSlot.SetItem(itemSlot.Item).UpdateUI();
             }
         }
+        dropItem.onClick.AddListener(DropItemButtonOnClick);
     }
+
+    private void DropItemButtonOnClick()
+    {
+        if (SlotSelected != null && SlotSelected.row >= 0 && SlotSelected.col >= 0)
+        {
+            Debug.Log(SlotSelected);
+            SlotSelected.SetItem(null).UpdateUI();
+            InventoryManager.Instance.SetItemInventory(SlotSelected.row, SlotSelected.col, null);
+            SlotSelected = null;
+            dragDrop.SetTextSlotSelected("","");
+        }
+    }
+
+    public UISlot SlotSelected { get; set; }
 }

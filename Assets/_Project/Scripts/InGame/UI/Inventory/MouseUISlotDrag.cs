@@ -7,6 +7,7 @@ public class MouseUISlotDrag : MonoBehaviour, IBeginDragHandler, IDragHandler, I
 {
     [SerializeField] private TextMeshProUGUI nameOfItem;
     [SerializeField] private TextMeshProUGUI descriptionOfItem;
+    [SerializeField] private UIInventoryManager uiInventory;
     private UISlot uiSlotBegin;
     private GameObject dragInstance;
     private Image dragImage;
@@ -46,7 +47,7 @@ public class MouseUISlotDrag : MonoBehaviour, IBeginDragHandler, IDragHandler, I
         if (eventData.pointerCurrentRaycast.gameObject is { } targetObj)
         {
             var targetSlot = targetObj.GetComponent<UISlot>();
-            if (targetSlot != null)
+            if (targetSlot != null && targetSlot != uiSlotBegin)
                 uiSlotBegin.SwapItem(targetSlot);
         }
         uiSlotBegin.UpdateUI();
@@ -58,7 +59,13 @@ public class MouseUISlotDrag : MonoBehaviour, IBeginDragHandler, IDragHandler, I
         if (eventData.pointerCurrentRaycast.gameObject is not { } targetObj) return;
         var targetSlot = targetObj.GetComponent<UISlot>();
         if(targetSlot == null || targetSlot.Item == null) return;
-        nameOfItem.SetText(targetSlot.Item.Name);
-        descriptionOfItem.SetText(targetSlot.Item.Description);
+        SetTextSlotSelected(targetSlot.Item.Name, targetSlot.Item.Description);
+        uiInventory.SlotSelected = targetSlot;
+    }
+
+    public void SetTextSlotSelected(string nameString, string descriptionString)
+    {
+        nameOfItem.SetText(nameString);
+        descriptionOfItem.SetText(descriptionString);
     }
 }

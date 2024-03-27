@@ -5,18 +5,15 @@ public class EquipmentUISlot : UISlot
 {
     private Player player;
 
-    protected override void Start()
+    protected void Start()
     {
         InventoryManager.Instance.Equipment.TryGetValue(allowedType, out var item);
         player = InGameManager.Instance.GetPlayer();
-        SetItem(item);
-        Debug.Log("VAR " + player);
-        base.Start();
+        SetItem(item).UpdateUI();
     }
 
     public override UISlot SetItem(Item item)
     {
-        Debug.Log(player);
         if (Item != null)
         {
             player.Stats.RemoveModifiers((Item as EquipableItem)?.Modifiers);

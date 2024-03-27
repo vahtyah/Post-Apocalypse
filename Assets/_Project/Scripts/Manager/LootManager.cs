@@ -28,7 +28,7 @@ public class LootManager : Singleton<LootManager>
             foreach (var chestItem in chest.Items)
             {
                 var uiSlot = Instantiate(UISlotPrefab, parentUI);
-                uiSlot.GetComponent<UISlot>().SetItem(chestItem).UpdateUI();
+                uiSlot.GetComponent<ChestUISlot>().SetChest(chest).SetItem(chestItem).UpdateUI();
             }
         }
     }
