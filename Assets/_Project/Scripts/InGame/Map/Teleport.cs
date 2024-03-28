@@ -15,12 +15,18 @@ public class Teleport : MonoBehaviour, IGate
 
     private void OnTriggerEnter(Collider other)
     {
-        Invoke("LoadMap", 1.5f);
+        if (other.CompareTag("Player"))
+        {
+            Invoke("LoadMap", 1.5f);
+        }
     }
 
     private void OnTriggerExit(Collider other)
     {
-        CancelInvoke("LoadMap");
+        if (other.CompareTag("Player"))
+        {
+            CancelInvoke("LoadMap");
+        }
     }
 
     private void LoadMap()

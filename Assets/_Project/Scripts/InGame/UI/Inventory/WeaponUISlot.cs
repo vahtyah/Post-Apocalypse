@@ -9,13 +9,16 @@ public class WeaponUISlot : UISlot
         player = InGameManager.Instance.GetPlayer();
         SetItem(InventoryManager.Instance.Equipment[allowedType]).UpdateUI();
     }
+
     public override UISlot SetItem(Item item)
     {
         if (item != null && item.Type == ItemType.Weapon)
         {
             var weapon = item as WeaponData;
-            if (weapon != null) player.Weapon.SetWeapon(weapon.WeaponType);
+            if (weapon != null)
+                player.Weapon.SetWeapon(weapon.WeaponType);
         }
+
         return base.SetItem(item);
     }
 

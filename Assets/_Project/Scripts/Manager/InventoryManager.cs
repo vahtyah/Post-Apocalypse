@@ -13,7 +13,6 @@ public class InventoryManager : SerializedSingleton<InventoryManager>
     private Dictionary<ItemType, Item> equipment = new();
 
     [SerializeField] private GameObject uiInventory;
-    [SerializeField] private WeaponData startWeapon;
 
     private readonly string keySaveInventory = "Inventory";
     private readonly string keySaveEquipment = "Equipment";
@@ -28,7 +27,6 @@ public class InventoryManager : SerializedSingleton<InventoryManager>
     private void Start()
     {
         uiInventory.SetActive(false);
-        InGameManager.Instance.GetPlayer().Weapon.SetWeapon(startWeapon.WeaponType);
     }
 
     private void Update()
@@ -71,7 +69,6 @@ public class InventoryManager : SerializedSingleton<InventoryManager>
             equipment = ES3.Load<Dictionary<ItemType, Item>>(keySaveEquipment);
     }
 
-    public Item StartWeapon => startWeapon;
     public ItemSlot[,] Inventory => inventory;
 
     public Dictionary<ItemType, Item> Equipment => equipment;

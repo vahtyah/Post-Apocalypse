@@ -8,6 +8,9 @@ onBoardingDoNotAskAgain = true
 showPackageIndexes = false
 showStatusBar = false
 scopes = {
+	"last_search.110DEAF1" = "light"
+	"OpenInspectorPreview.110DEAF1" = "0"
+	"currentGroup.110DEAF1" = "menu"
 }
 providers = {
 	packages = {
@@ -59,6 +62,8 @@ providers = {
 objectSelectors = {
 }
 recentSearches = [
+	""
+	"h: t=MeshFilter vertices>=1024"
 ]
 searchItemFavorites = [
 ]
@@ -69,7 +74,7 @@ expandedQueries = [
 ]
 queryBuilder = false
 ignoredProperties = "id;name;classname;imagecontentshash"
-helperWidgetCurrentArea = "all"
+helperWidgetCurrentArea = "h:"
 disabledIndexers = ""
 minIndexVariations = 2
 findProviderIndexHelper = true
