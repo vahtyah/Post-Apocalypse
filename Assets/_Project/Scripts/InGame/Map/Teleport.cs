@@ -3,15 +3,15 @@ using UnityEngine;
 
 public class Teleport : MonoBehaviour, IGate
 {
+    [SerializeField] private GameObject chest;
+
     public void Open()
     {
         gameObject.SetActive(true);
+        if (chest != null) chest.SetActive(true);
     }
 
-    public void Close()
-    {
-        
-    }
+    public void Close() { }
 
     private void OnTriggerEnter(Collider other)
     {
@@ -29,8 +29,5 @@ public class Teleport : MonoBehaviour, IGate
         }
     }
 
-    private void LoadMap()
-    {
-        MapManager.Instance.LoadNextMap();
-    }
+    private void LoadMap() { MapManager.Instance.LoadNextMap(); }
 }

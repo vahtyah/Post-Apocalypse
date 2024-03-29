@@ -244,7 +244,7 @@ Transform:
   m_GameObject: {fileID: 1783836644289408592}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: -54.72}
+  m_LocalPosition: {x: -12.35, y: 0, z: 3.57}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -644,6 +644,7 @@ Transform:
   - {fileID: 7105517404036183002}
   - {fileID: 4183079124666834842}
   - {fileID: 289703382205604442}
+  - {fileID: 5603165807301602753}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &2406646532424638193
@@ -1369,3 +1370,65 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: -4146560900308659984, guid: 5ba04fcfc125fa04e96a40ace8dbdffe, type: 3}
+--- !u!1001 &5736583417166156586
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 7696906743510350518}
+    m_Modifications:
+    - target: {fileID: 170575639995645675, guid: c7b17fa9c838d5549a1d79c125beb7b1, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -17.34
+      objectReference: {fileID: 0}
+    - target: {fileID: 170575639995645675, guid: c7b17fa9c838d5549a1d79c125beb7b1, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 170575639995645675, guid: c7b17fa9c838d5549a1d79c125beb7b1, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 2.81
+      objectReference: {fileID: 0}
+    - target: {fileID: 170575639995645675, guid: c7b17fa9c838d5549a1d79c125beb7b1, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.7071068
+      objectReference: {fileID: 0}
+    - target: {fileID: 170575639995645675, guid: c7b17fa9c838d5549a1d79c125beb7b1, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0.7071068
+      objectReference: {fileID: 0}
+    - target: {fileID: 170575639995645675, guid: c7b17fa9c838d5549a1d79c125beb7b1, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 170575639995645675, guid: c7b17fa9c838d5549a1d79c125beb7b1, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 170575639995645675, guid: c7b17fa9c838d5549a1d79c125beb7b1, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: -90
+      objectReference: {fileID: 0}
+    - target: {fileID: 170575639995645675, guid: c7b17fa9c838d5549a1d79c125beb7b1, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 170575639995645675, guid: c7b17fa9c838d5549a1d79c125beb7b1, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6038389238872647319, guid: c7b17fa9c838d5549a1d79c125beb7b1, type: 3}
+      propertyPath: m_Name
+      value: Molotov Ground Burning
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: c7b17fa9c838d5549a1d79c125beb7b1, type: 3}
+--- !u!4 &5603165807301602753 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 170575639995645675, guid: c7b17fa9c838d5549a1d79c125beb7b1, type: 3}
+  m_PrefabInstance: {fileID: 5736583417166156586}
+  m_PrefabAsset: {fileID: 0}

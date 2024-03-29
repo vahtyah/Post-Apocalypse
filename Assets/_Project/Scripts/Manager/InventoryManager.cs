@@ -22,6 +22,7 @@ public class InventoryManager : SerializedSingleton<InventoryManager>
         base.Awake();
         inventory = LoadInventory();
         LoadEquipment();
+        InGameManager.Instance.GetPlayer().Weapon.SetWeapon(((WeaponData)equipment[ItemType.Weapon]).WeaponType);
     }
 
     private void Start()
