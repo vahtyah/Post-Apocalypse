@@ -9,4 +9,5 @@ public static class InputManager
     public static bool NormalAttack => Input.GetMouseButton(0);
 
     public static bool OpenInventory => Input.GetKeyDown(KeyCode.Tab);
+    public static bool Pause => Input.GetKeyDown(KeyCode.Escape);
 }

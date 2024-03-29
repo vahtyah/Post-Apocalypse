@@ -8,16 +8,11 @@ public class LoadSceneController : MonoBehaviour
     [SerializeField] private Slider progressBar;
     [SerializeField] private TextMeshProUGUI progressText;
 
-    public void LoadStartScene(GameSceneManager.Scene scene)
+    private IEnumerator Start()
     {
-        StartCoroutine(IELoadScene(scene));
-    }
-
-    private IEnumerator IELoadScene(GameSceneManager.Scene scene)
-    {
-        gameObject.SetActive(true);
+        Time.timeScale = 1;
         progressBar.value = 0;
-        var async = GameSceneManager.LoadSceneSync(scene);
+        var async = GameSceneManager.LoadSceneSync(GameSceneManager.Scene.InGame);
         async.allowSceneActivation = false;
         var progress = 0f;
         while (!async.isDone)
@@ -37,7 +32,6 @@ public class LoadSceneController : MonoBehaviour
             yield return null;
         }
         yield return new WaitForSeconds(.5f);
-        gameObject.SetActive(false);
         yield return null;
     }
 }

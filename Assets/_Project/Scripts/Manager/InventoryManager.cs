@@ -35,6 +35,7 @@ public class InventoryManager : SerializedSingleton<InventoryManager>
         if (InputManager.OpenInventory)
         {
             uiInventory.SetActive(!uiInventory.activeSelf);
+            InGameManager.Instance.GameState = uiInventory.activeSelf ? GameState.OnInventory : GameState.Resume;
         }
     }
 

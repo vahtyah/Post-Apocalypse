@@ -5,6 +5,7 @@ public class GameSceneManager
     public enum Scene
     {
         MainMenu,
+        Loading,
         InGame
     }
     public static void LoadScene(Scene scene)

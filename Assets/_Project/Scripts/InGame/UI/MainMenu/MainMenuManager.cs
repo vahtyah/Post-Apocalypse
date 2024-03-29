@@ -1,4 +1,6 @@
 ﻿using System;
+using Sirenix.OdinInspector;
+using UnityEditor;
 using UnityEngine;
 
 public class MainMenuManager : Singleton<MainMenuManager>
@@ -20,9 +22,16 @@ public class MainMenuManager : Singleton<MainMenuManager>
     [SerializeField] private GameObject settingsButtonHighlight;
     
     private ButtonType currentSelect;
+
+    [Button("Clear Save")]
+    public void ClearSave()
+    {
+        if(ES3.KeyExists("IndexMap")) ES3.DeleteKey("IndexMap");
+    }
     
     private void Start()
     {
+        Time.timeScale = 1;
         SetPanelActive(ButtonType.None);
     }
 

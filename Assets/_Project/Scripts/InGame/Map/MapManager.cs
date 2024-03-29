@@ -9,10 +9,12 @@ public class MapManager : SerializedSingleton<MapManager>, IGameState
     [ShowInInspector] private MapScene currentMap;
     [ShowInInspector] private int currentIndexMap;
 
+    public string saveKeyIndexMap { get; private set; } = "IndexMap";
+
     protected override void Awake()
     {
         base.Awake();
-        currentIndexMap = 0;
+        currentIndexMap = LoadCurrentIndexMap();
     }
 
     private void LoadMap(int index)
@@ -32,6 +34,7 @@ public class MapManager : SerializedSingleton<MapManager>, IGameState
             Destroy(currentMap.gameObject);
 
         currentMap = Instantiate(mapScenes[currentIndexMap]);
+        ES3.Save(saveKeyIndexMap, currentIndexMap);
         currentIndexMap += 1;
     }
 
@@ -39,5 +42,10 @@ public class MapManager : SerializedSingleton<MapManager>, IGameState
     {
         if (gameState == GameState.Start)
             LoadNextMap();
+    }
+
+    private int LoadCurrentIndexMap()
+    {
+        return ES3.KeyExists(saveKeyIndexMap) ? ES3.Load<int>(saveKeyIndexMap) : 0;
     }
 }
