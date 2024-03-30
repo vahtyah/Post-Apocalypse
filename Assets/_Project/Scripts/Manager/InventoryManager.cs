@@ -22,12 +22,12 @@ public class InventoryManager : SerializedSingleton<InventoryManager>
         base.Awake();
         inventory = LoadInventory();
         LoadEquipment();
-        InGameManager.Instance.GetPlayer().Weapon.SetWeapon(((WeaponData)equipment[ItemType.Weapon]).WeaponType);
     }
 
     private void Start()
     {
         uiInventory.SetActive(false);
+        InGameManager.Instance.GetPlayer().Weapon.SetWeapon(((WeaponData)equipment[ItemType.Weapon]).WeaponType);
     }
 
     private void Update()
@@ -69,6 +69,13 @@ public class InventoryManager : SerializedSingleton<InventoryManager>
     {
         if (ES3.KeyExists(keySaveEquipment))
             equipment = ES3.Load<Dictionary<ItemType, Item>>(keySaveEquipment);
+    }
+
+    [Button]
+    private void RemoveSaveLoadEquipment()
+    {
+        if(ES3.KeyExists(keySaveEquipment))
+            ES3.DeleteKey(keySaveEquipment);
     }
 
     public ItemSlot[,] Inventory => inventory;
