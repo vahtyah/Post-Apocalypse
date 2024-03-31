@@ -33,7 +33,7 @@ MonoBehaviour:
       Data: 1|EnemyWaveData, Assembly-CSharp
     - Name: enemyType
       Entry: 3
-      Data: 0
+      Data: 4
     - Name: amount
       Entry: 3
       Data: 1

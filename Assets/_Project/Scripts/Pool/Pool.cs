@@ -1,21 +1,24 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 using Sirenix.OdinInspector;
 using UnityEngine;
 using UnityEngine.Events;
 
-public interface IPoolable<T, E> where T : Component where E : Enum
+public interface IPoolable<C, E> where C : Component where E : Enum
 {
-    T Get(E key);
-    void Return(E key, T obj);
+    C Get(E key);
+    void Return(E key, C obj);
 }
 
-public class Pool<T, E> : SerializedSingleton<Pool<T, E>>, IPoolable<T, E> where T : Component where E : Enum
+public class Pool<C, E> : SerializedSingleton<Pool<C, E>>, IPoolable<C, E> where C : Component where E : Enum
 {
     [SerializeField,
      DictionaryDrawerSettings(DisplayMode = DictionaryDisplayOptions.OneLine, ValueLabel = "Prefab")]
     private Dictionary<E, GameObject> pools = new();
+
     private readonly Dictionary<Enum, Queue<GameObject>> pooled = new();
+    private readonly List<GameObject> activeObjects = new();
     protected int quantityNeededReturn;
     protected UnityEvent onAllObjectsReturned;
 
@@ -28,26 +31,28 @@ public class Pool<T, E> : SerializedSingleton<Pool<T, E>>, IPoolable<T, E> where
             pooled.Add(pool.Key, new Queue<GameObject>());
         }
     }
-    
-    public virtual T Get(E key)
+
+    public virtual C Get(E key)
     {
         if (pooled.TryGetValue(key, out var pool))
         {
             var obj = pool.Count > 0 ? pool.Dequeue() : Instantiate(pools[key], transform);
             obj.gameObject.SetActive(true);
-            return obj.GetComponent<T>();
+            activeObjects.Add(obj);
+            return obj.GetComponent<C>();
         }
 
         Debug.LogError($"No pool found for {key}");
         return null;
     }
 
-    public virtual void Return(E key, T obj)
+    public virtual void Return(E key, C obj)
     {
         obj.gameObject.SetActive(false);
         if (pooled.TryGetValue(key, out var pool))
         {
             pool.Enqueue(obj.gameObject);
+            activeObjects.Remove(obj.gameObject);
         }
         else
         {
@@ -55,7 +60,21 @@ public class Pool<T, E> : SerializedSingleton<Pool<T, E>>, IPoolable<T, E> where
         }
     }
 
-    public Pool<T, E> SetQuantityNeededReturn(int value)
+    [Button("Clear All Objects")]
+    public void ClearAllObjects()
+    {
+        foreach (var obj in activeObjects)
+            Destroy(obj);
+        foreach (var obj in pooled)
+        {
+            foreach (var o in obj.Value)
+                Destroy(o);
+            obj.Value.Clear();
+        }
+        activeObjects.Clear();
+    }
+
+    public Pool<C, E> SetQuantityNeededReturn(int value)
     {
         quantityNeededReturn += value;
         return this;
@@ -63,25 +82,4 @@ public class Pool<T, E> : SerializedSingleton<Pool<T, E>>, IPoolable<T, E> where
 
     public void AddListenerOnAllObjectsReturned(UnityAction action) => onAllObjectsReturned.AddListener(action);
     public void RemoveAllListeners() => onAllObjectsReturned?.RemoveAllListeners();
-
-    // private void CleanupPool()
-    //     // {
-    //     //     const float maxUnusedTime = 300f;
-    //     //     foreach (var pool in pooled)
-    //     //     {
-    //     //         while (pool.Value.Count > 0)
-    //     //         {
-    //     //             var obj = pool.Value.Peek();
-    //     //             if (Time.time - obj.Item2 > maxUnusedTime)
-    //     //             {
-    //     //                 Destroy(obj.Item1);
-    //     //                 pool.Value.Dequeue();
-    //     //             }
-    //     //             else
-    //     //             {
-    //     //                 break;
-    //     //             }
-    //     //         }
-    //     //     }
-    //     // }
 }

@@ -3,13 +3,20 @@ using System.Collections.Generic;
 using Sirenix.OdinInspector;
 using UnityEngine;
 
-public class MapManager : SerializedSingleton<MapManager>, IGameState
+public class MapManager : SerializedSingleton<MapManager>, IInGameState
 {
     [SerializeField] private List<MapScene> mapScenes;
     [ShowInInspector] private MapScene currentMap;
     [ShowInInspector] private int currentIndexMap;
 
     public string saveKeyIndexMap { get; private set; } = "IndexMap";
+
+    [Button]
+    private void ClearSaveIndex()
+    {
+        if(ES3.KeyExists(saveKeyIndexMap))
+            ES3.DeleteKey(saveKeyIndexMap);
+    }
 
     protected override void Awake()
     {
@@ -38,9 +45,9 @@ public class MapManager : SerializedSingleton<MapManager>, IGameState
         currentIndexMap += 1;
     }
 
-    public void OnGameStateChangedHandler(GameState gameState)
+    public void OnInGameStateChangedHandler(InGameState inGameState)
     {
-        if (gameState == GameState.Start)
+        if (inGameState == InGameState.Start)
             LoadNextMap();
     }
 

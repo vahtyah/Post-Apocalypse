@@ -7,6 +7,6 @@
     public override void OnEnter()
     {
         base.OnEnter();
-        InGameManager.Instance.GameState = GameState.Lose;
+        InGameManager.Instance.InGameState = InGameState.Lose;
     }
 }

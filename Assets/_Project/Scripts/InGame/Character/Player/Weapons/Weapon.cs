@@ -3,17 +3,19 @@ using UnityEngine;
 
 public class Weapon : MonoBehaviour, IWeapon
 {
-    [SerializeField, InlineEditor] private WeaponData weaponData;
+    [SerializeField, InlineEditor] protected WeaponData weaponData;
     [SerializeField] private Transform shootPos;
     [SerializeField] private ParticleSystem muzzle;
 
     CountdownTimer cooldownTimer;
     private IProjectileFactory bulletFactory;
+    AudioManager audioManager;
 
     private void Awake()
     {
         cooldownTimer = new CountdownTimer(weaponData.Cooldown);
         bulletFactory = new ProjectileFactory();
+        audioManager = AudioManager.Instance;
         cooldownTimer.Start();
     }
 
@@ -28,6 +30,8 @@ public class Weapon : MonoBehaviour, IWeapon
     {
         muzzle.Play();
         cooldownTimer.Reset();
+        audioManager.PlaySFX(weaponData.ShootSound, shootPos.position);
+        
 
         var player = InGameManager.Instance.GetPlayer();
 

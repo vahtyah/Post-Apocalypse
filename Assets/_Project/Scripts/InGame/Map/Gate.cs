@@ -18,6 +18,7 @@ public class Gate : SerializedMonoBehaviour, IGate
     [SerializeField, ShowIf("hasABoss")] private Enemy.Type[] bossType;
     [SerializeField, ShowIf("hasABoss")] private IGate teleport;
     [SerializeField, ShowIf("hasABoss")] private Transform[] bossSpawnPos;
+    [SerializeField, ShowIf("hasABoss")] private bool isFinalGate;
     private ISpawnPoint spawner;
 
     
@@ -34,7 +35,9 @@ public class Gate : SerializedMonoBehaviour, IGate
         if (hasABoss)
         {
             EnemyPool.Instance.RemoveAllListeners();
-            EnemyPool.Instance.SetQuantityNeededReturn(bossType.Length).AddListenerOnAllObjectsReturned(teleport.Open);
+            var enemyPool = EnemyPool.Instance.SetQuantityNeededReturn(bossType.Length);
+            if(isFinalGate) enemyPool.AddListenerOnAllObjectsReturned(() => InGameManager.Instance.InGameState = InGameState.Win);
+            else enemyPool.AddListenerOnAllObjectsReturned(teleport.Open);
             foreach (var type in bossType)
             {
                 var point = spawner.NextSpawnPoint();

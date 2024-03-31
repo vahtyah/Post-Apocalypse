@@ -3,7 +3,7 @@ using Sirenix.OdinInspector;
 using UnityEngine;
 using UnityEngine.Events;
 
-public enum GameState
+public enum InGameState
 {
     Start,
     Resume,
@@ -13,58 +13,63 @@ public enum GameState
     Lose
 }
 
-public interface IGameState
+public interface IInGameState
 {
-    public void OnGameStateChangedHandler(GameState gameState);
+    public void OnInGameStateChangedHandler(InGameState inGameState);
 }
 
 [Serializable]
-public class GameStateEvent : UnityEvent<GameState>
+public class GameStateEvent : UnityEvent<InGameState>
 {
 }
 
-public class InGameManager : Singleton<InGameManager>, IGameState
+public class InGameManager : Singleton<InGameManager>, IInGameState
 {
     [SerializeField, BoxGroup("Props")] private Player player;
     [SerializeField, BoxGroup("Props")] private Transform reticle;
     public Player GetPlayer() => player;
     public Transform GetReticle() => reticle;
-    [SerializeField] GameStateEvent onGameStateChanged;
-    private GameState gameState;
+    [SerializeField] GameStateEvent onInGameStateChanged;
+    private InGameState inGameState;
 
-    public GameState GameState
+    public InGameState InGameState
     {
-        get => gameState;
+        get => inGameState;
         set
         {
-            gameState = value;
-            onGameStateChanged.Invoke(gameState);
+            inGameState = value;
+            onInGameStateChanged.Invoke(inGameState);
         }
     }
+    
+    protected override void Awake()
+    {
+        base.Awake();
+    }
 
-    private void Start() { GameState = GameState.Start; }
+    private void Start() { InGameState = InGameState.Start; }
 
     private void Update()
     {
         if (InputManager.Pause)
-            GameState = GameState.OnPause;
+            InGameState = InGameState == InGameState.OnPause ? InGameState.Resume : InGameState.OnPause;
     }
 
-    public void AddGameStateChangedListener(IGameState gameStateListener)
+    public void AddInGameStateChangedListener(IInGameState inGameStateListener)
     {
-        onGameStateChanged.AddListener(gameStateListener.OnGameStateChangedHandler);
+        onInGameStateChanged.AddListener(inGameStateListener.OnInGameStateChangedHandler);
     }
 
-    public void OnGameStateChangedHandler(GameState gameState)
+    public void OnInGameStateChangedHandler(InGameState inGameState)
     {
-        switch (gameState)
+        switch (inGameState)
         {
-            case GameState.OnPause or GameState.Win or GameState.Lose or GameState.OnInventory:
+            case InGameState.OnPause or InGameState.Win or InGameState.Lose or InGameState.OnInventory:
                 Time.timeScale = 0;
                 Cursor.visible = true;
                 reticle.gameObject.SetActive(false);
                 break;
-            case GameState.Resume or GameState.Start:
+            case InGameState.Resume or InGameState.Start:
                 Time.timeScale = 1;
                 Cursor.visible = false;
                 reticle.gameObject.SetActive(true);

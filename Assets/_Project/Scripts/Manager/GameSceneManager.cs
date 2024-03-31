@@ -10,6 +10,7 @@ public class GameSceneManager
     }
     public static void LoadScene(Scene scene)
     {
+        GameStateManager.Instance.GameState = scene;
         UnityEngine.SceneManagement.SceneManager.LoadScene(scene.ToString());
     }
 

@@ -5,6 +5,7 @@ public class WeaponData : EquipableItem
 {
     public WeaponType WeaponType;
     public Projectile.Type ProjectileType;
+    public AudioManager.Type ShootSound;
     public float Cooldown;
     public int Damage;
 }

@@ -22,7 +22,7 @@ public class PauseMenuController : MonoBehaviour
 
     private void ResumeButtonOnClick()
     {
-        InGameManager.Instance.GameState = GameState.Resume;
+        InGameManager.Instance.InGameState = InGameState.Resume;
         gameObject.SetActive(false);
     }
     

@@ -31,6 +31,7 @@ public class LoadSceneController : MonoBehaviour
             }
             yield return null;
         }
+        GameStateManager.Instance.GameState = GameSceneManager.Scene.InGame;
         yield return new WaitForSeconds(.5f);
         yield return null;
     }

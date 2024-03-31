@@ -51,6 +51,7 @@ public abstract class Projectile : MonoBehaviour
         ScarL,
         ShadowSpray,
         SpiderArea,
+        SpiderToxin,
         Blackhole
     }
 }

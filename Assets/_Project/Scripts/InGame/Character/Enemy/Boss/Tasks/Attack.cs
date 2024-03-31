@@ -17,7 +17,8 @@ public class Attack : Action
     {
         if ((InGameManager.Instance.GetPlayer().transform.position - transform.position).sqrMagnitude >= sqrAttackRange)
             return TaskStatus.Failure;
-        enemy.Attack.Attack();
+        if (enemy.Attack.CanAttack())
+            enemy.Attack.Attack();
         return TaskStatus.Running;
     }
 }

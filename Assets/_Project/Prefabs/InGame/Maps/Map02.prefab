@@ -1124,9 +1124,10 @@ MonoBehaviour:
       Data: 0
   positionOpen: {x: 0, y: 0, z: 0}
   hasABoss: 1
-  bossType: 03000000
+  bossType: 05000000
   bossSpawnPos:
   - {fileID: 8845802476757039704}
+  isFinalGate: 0
 --- !u!1 &2222015397619976330
 GameObject:
   m_ObjectHideFlags: 0
@@ -2983,6 +2984,7 @@ MonoBehaviour:
   hasABoss: 0
   bossType: 
   bossSpawnPos: []
+  isFinalGate: 0
 --- !u!65 &3182005119357055739
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -3596,6 +3598,7 @@ MonoBehaviour:
   hasABoss: 0
   bossType: 
   bossSpawnPos: []
+  isFinalGate: 0
 --- !u!65 &7823569848036970281
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -3714,6 +3717,7 @@ MonoBehaviour:
   hasABoss: 0
   bossType: 
   bossSpawnPos: []
+  isFinalGate: 0
 --- !u!65 &8936849144379231042
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -5050,6 +5054,7 @@ MonoBehaviour:
   hasABoss: 0
   bossType: 
   bossSpawnPos: []
+  isFinalGate: 0
 --- !u!65 &1225553662891711946
 BoxCollider:
   m_ObjectHideFlags: 0

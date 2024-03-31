@@ -6,6 +6,12 @@ public class EnemyAttackState : EnemyState
 
     protected override EnemyAnimationState AnimationState => EnemyAnimationState.Attack;
 
+    public override void OnEnter()
+    {
+        base.OnEnter();
+        Debug.Log("EnemyAttackState OnEnter");
+    }
+
     public override void OnUpdate()
     {
         base.OnUpdate();

@@ -1,40 +1,40 @@
 ﻿using System;
 using UnityEngine;
 
-public class UIManager : MonoBehaviour, IGameState
+public class UIManager : MonoBehaviour, IInGameState
 {
     [SerializeField] private GameObject pausePanel;
     [SerializeField] private GameObject winPanel;
     [SerializeField] private GameObject losePanel;
 
-    public void OnGameStateChangedHandler(GameState gameState)
+    public void OnInGameStateChangedHandler(InGameState inGameState)
     {
-        SetActivePanel(gameState);
+        SetActivePanel(inGameState);
     }
     
-    private void SetActivePanel(GameState gameState)
+    private void SetActivePanel(InGameState inGameState)
     {
         bool isPause = false, isWin = false, isLose = false;
-        switch (gameState)
+        switch (inGameState)
         {
-            case GameState.Start:
+            case InGameState.Start:
                 break;
-            case GameState.Resume:
+            case InGameState.Resume:
                 break;
-            case GameState.OnPause:
+            case InGameState.OnPause:
                 isPause = true;
                 break;
-            case GameState.Win:
+            case InGameState.Win:
                 isWin = true;
                 break;
-            case GameState.Lose:
+            case InGameState.Lose:
                 isLose = true;
                 break;
-            case GameState.OnInventory:
+            case InGameState.OnInventory:
                 break;
             default:
-                throw new ArgumentOutOfRangeException(nameof(gameState), gameState, null);
-        }
+                throw new ArgumentOutOfRangeException(nameof(inGameState), inGameState, null);
+        }   
         
         pausePanel.SetActive(isPause);
         winPanel.SetActive(isWin);

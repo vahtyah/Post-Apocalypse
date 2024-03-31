@@ -45,6 +45,12 @@ public abstract class Enemy : SerializedMonoBehaviour
     {
     }
 
+    private void OnDrawGizmos()
+    {
+        Gizmos.color = Color.red;
+        Gizmos.DrawWireSphere(transform.position, data.Stats.AttackRange);
+    }
+
     public Transform AttackPosition => attackPosition;
     public LayerMask PlayerMask => playerMask;
     public EnemyData Data => data;
@@ -54,6 +60,8 @@ public abstract class Enemy : SerializedMonoBehaviour
         Egglet,
         Shade,
         Shadow,
+        Spider,
+        SpiderToxin,
         SpiderKing
     }
 }
