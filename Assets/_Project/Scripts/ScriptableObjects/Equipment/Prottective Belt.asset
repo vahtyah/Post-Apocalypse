@@ -10,14 +10,14 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: bd78a786b4074fb693cc707141317b45, type: 3}
-  m_Name: Armor
+  m_Name: Prottective Belt
   m_EditorClassIdentifier: 
-  Icon: {fileID: 21300000, guid: 072d84a30f4e6b14ebaf110343a6f7ac, type: 3}
-  Name: Protective suil
+  Icon: {fileID: 21300000, guid: a2a8035540dcf4b48bda0030868918b9, type: 3}
+  Name: Prottective Belt
   Description: 
   Prefab: {fileID: 0}
-  Type: 2
+  Type: 3
   Modifiers:
     stats:
-    - Type: 6
-      Value: 3
+    - Type: 8
+      Value: 5

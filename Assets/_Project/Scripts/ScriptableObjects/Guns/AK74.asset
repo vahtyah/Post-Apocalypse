@@ -24,4 +24,4 @@ MonoBehaviour:
   ProjectileType: 4
   ShootSound: 2
   Cooldown: 0.2
-  Damage: 0
+  Damage: 300

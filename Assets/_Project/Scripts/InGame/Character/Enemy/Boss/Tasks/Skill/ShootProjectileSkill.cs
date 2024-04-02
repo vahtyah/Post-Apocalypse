@@ -27,7 +27,8 @@ public class ShootProjectileSkill : Action
             Vector3 direction = Quaternion.Euler(0, currentAngle, 0) * transform.forward;
             Vector3 projectileDir = transform.position + (Vector3)direction * 5f;
 
-            projectileFactory.Create(projectileType, 1, shootPos.position, projectileDir,
+            //TODO: damage should be calculated based on player's stats
+            projectileFactory.Create(projectileType, 20, shootPos.position, projectileDir,
                 GetComponent<Enemy>().gameObject);
         }
     }

@@ -47,9 +47,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 502f3ef6add343ff8ac9ea9d27d5ffcc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  weaponData: {fileID: 11400000, guid: c08ad05261cd322479388700d2dade56, type: 2}
   shootPos: {fileID: 7384620620739638328}
   muzzle: {fileID: 3666765502863745466}
-  weaponData: {fileID: 11400000, guid: c08ad05261cd322479388700d2dade56, type: 2}
 --- !u!1 &5245281041943962614
 GameObject:
   m_ObjectHideFlags: 0

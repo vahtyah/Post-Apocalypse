@@ -16,7 +16,8 @@ public class SpraySkill : Action
 
     private void SprayProjectileInFront()
     {
-         var projectile = factory.Create(Projectile.Type.ShadowSpray, 1, shootPos.position,
+        //TODO: damage should be calculated based on player's stats
+         var projectile = factory.Create(Projectile.Type.ShadowSpray, 20, shootPos.position,
             InGameManager.Instance.GetPlayer().transform.position, sender: gameObject);
          projectile.transform.SetParent(transform);
     }

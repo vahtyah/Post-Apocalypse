@@ -33,10 +33,10 @@ MonoBehaviour:
       Data: 1|EnemyWaveData, Assembly-CSharp
     - Name: enemyType
       Entry: 3
-      Data: 0
+      Data: 3
     - Name: amount
       Entry: 3
-      Data: 1
+      Data: 10
     - Name: spawnInterval
       Entry: 4
       Data: 1

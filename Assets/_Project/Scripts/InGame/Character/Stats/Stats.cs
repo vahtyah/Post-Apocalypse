@@ -14,7 +14,7 @@ public class Stats
         set => stats[type] = value;
     }
 
-    [ProgressBar(0, 100), ShowInInspector]
+    [ProgressBar(0, 1000), ShowInInspector]
     public float MaxHealth
     {
         get => this[StatsType.Health];

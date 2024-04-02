@@ -23,7 +23,8 @@ public class DropDamageAreaSkill : Action
             var direction = Quaternion.Euler(0, randomAngle, 0) * transform.forward;
             var randomRadius = Random.Range(7, 15);
             var transDir = transform.position + direction * randomRadius;
-            factory.Create(Projectile.Type.SpiderArea, 1, transDir, sender: this.gameObject);
+            //TODO: damage should be calculated based on player's stats
+            factory.Create(Projectile.Type.SpiderArea, 20, transDir, sender: this.gameObject);
         }
     }
 }

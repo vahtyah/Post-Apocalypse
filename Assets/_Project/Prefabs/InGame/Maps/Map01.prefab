@@ -3198,7 +3198,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8924805550052077318, guid: bb606939b0b85bb44bf3bb045fc2bf43, type: 3}
       propertyPath: items.Array.size
-      value: 4
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 8924805550052077318, guid: bb606939b0b85bb44bf3bb045fc2bf43, type: 3}
       propertyPath: items.Array.data[0]
@@ -3215,7 +3215,15 @@ PrefabInstance:
     - target: {fileID: 8924805550052077318, guid: bb606939b0b85bb44bf3bb045fc2bf43, type: 3}
       propertyPath: items.Array.data[3]
       value: 
+      objectReference: {fileID: 11400000, guid: 30343ec89ae4b394f81cda7ca7240132, type: 2}
+    - target: {fileID: 8924805550052077318, guid: bb606939b0b85bb44bf3bb045fc2bf43, type: 3}
+      propertyPath: items.Array.data[4]
+      value: 
       objectReference: {fileID: 11400000, guid: c08ad05261cd322479388700d2dade56, type: 2}
+    - target: {fileID: 8924805550052077318, guid: bb606939b0b85bb44bf3bb045fc2bf43, type: 3}
+      propertyPath: items.Array.data[5]
+      value: 
+      objectReference: {fileID: 11400000, guid: 668a57ec379babb40977f0a3eaa2b92b, type: 2}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -3536,6 +3544,7 @@ MonoBehaviour:
   hasABoss: 0
   bossType: 
   bossSpawnPos: []
+  isFinalGate: 0
 --- !u!65 &5266703015137609050
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -3592,6 +3601,7 @@ MonoBehaviour:
   bossType: 02000000
   bossSpawnPos:
   - {fileID: 5140667289111919394}
+  isFinalGate: 0
 --- !u!65 &3263328181615033215
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -3678,6 +3688,7 @@ MonoBehaviour:
   hasABoss: 0
   bossType: 
   bossSpawnPos: []
+  isFinalGate: 0
 --- !u!65 &6353149938203410941
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -3732,6 +3743,7 @@ MonoBehaviour:
   hasABoss: 0
   bossType: 
   bossSpawnPos: []
+  isFinalGate: 0
 --- !u!65 &8655638203146866829
 BoxCollider:
   m_ObjectHideFlags: 0
