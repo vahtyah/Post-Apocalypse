@@ -21,7 +21,7 @@ MonoBehaviour:
   Modifiers:
     stats: []
   WeaponType: 0
-  ProjectileType: 4
+  ProjectileType: 0
   ShootSound: 2
-  Cooldown: 0.2
-  Damage: 300
+  Cooldown: 0.25
+  Damage: 20

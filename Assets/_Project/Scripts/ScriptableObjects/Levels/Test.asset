@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 17f6944d80ce40869085baa3a7c2a696, type: 3}
-  m_Name: Level9Boss
+  m_Name: Test
   m_EditorClassIdentifier: 
   serializationData:
     SerializedFormat: 2
@@ -27,7 +27,7 @@ MonoBehaviour:
         mscorlib
     - Name: 
       Entry: 12
-      Data: 4
+      Data: 1
     - Name: 
       Entry: 7
       Data: 1|EnemyWaveData, Assembly-CSharp
@@ -36,64 +36,10 @@ MonoBehaviour:
       Data: 0
     - Name: amount
       Entry: 3
-      Data: 10
-    - Name: spawnInterval
-      Entry: 4
-      Data: 0.5
-    - Name: restInterval
-      Entry: 4
-      Data: 2
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: 
-      Entry: 7
-      Data: 2|EnemyWaveData, Assembly-CSharp
-    - Name: enemyType
-      Entry: 3
       Data: 1
-    - Name: amount
-      Entry: 3
-      Data: 10
     - Name: spawnInterval
       Entry: 4
-      Data: 0.5
-    - Name: restInterval
-      Entry: 4
-      Data: 2
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: 
-      Entry: 7
-      Data: 3|EnemyWaveData, Assembly-CSharp
-    - Name: enemyType
-      Entry: 3
-      Data: 3
-    - Name: amount
-      Entry: 3
-      Data: 20
-    - Name: spawnInterval
-      Entry: 4
-      Data: 1
-    - Name: restInterval
-      Entry: 4
-      Data: 2
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: 
-      Entry: 7
-      Data: 4|EnemyWaveData, Assembly-CSharp
-    - Name: enemyType
-      Entry: 3
-      Data: 4
-    - Name: amount
-      Entry: 3
-      Data: 30
-    - Name: spawnInterval
-      Entry: 4
-      Data: 1
+      Data: 0
     - Name: restInterval
       Entry: 4
       Data: 0

@@ -23,5 +23,5 @@ MonoBehaviour:
   WeaponType: 1
   ProjectileType: 1
   ShootSound: 3
-  Cooldown: 0.1
-  Damage: 300
+  Cooldown: 0.2
+  Damage: 30

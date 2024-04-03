@@ -5962,6 +5962,26 @@ PrefabInstance:
       propertyPath: m_Name
       value: Chest
       objectReference: {fileID: 0}
+    - target: {fileID: 8381099927735540772, guid: bb606939b0b85bb44bf3bb045fc2bf43, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8924805550052077318, guid: bb606939b0b85bb44bf3bb045fc2bf43, type: 3}
+      propertyPath: items.Array.size
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 8924805550052077318, guid: bb606939b0b85bb44bf3bb045fc2bf43, type: 3}
+      propertyPath: items.Array.data[0]
+      value: 
+      objectReference: {fileID: 11400000, guid: 078c11315cabeb0479e4807565745948, type: 2}
+    - target: {fileID: 8924805550052077318, guid: bb606939b0b85bb44bf3bb045fc2bf43, type: 3}
+      propertyPath: items.Array.data[1]
+      value: 
+      objectReference: {fileID: 11400000, guid: 668a57ec379babb40977f0a3eaa2b92b, type: 2}
+    - target: {fileID: 8924805550052077318, guid: bb606939b0b85bb44bf3bb045fc2bf43, type: 3}
+      propertyPath: items.Array.data[2]
+      value: 
+      objectReference: {fileID: 11400000, guid: ec7e8f8b6e15f3a41abbd6674f574759, type: 2}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
