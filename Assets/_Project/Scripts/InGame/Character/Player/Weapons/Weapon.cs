@@ -1,4 +1,5 @@
-﻿using Sirenix.OdinInspector;
+﻿using System;
+using Sirenix.OdinInspector;
 using UnityEngine;
 
 public class Weapon : MonoBehaviour, IWeapon
@@ -7,16 +8,22 @@ public class Weapon : MonoBehaviour, IWeapon
     [SerializeField] private Transform shootPos;
     [SerializeField] private ParticleSystem muzzle;
 
-    CountdownTimer cooldownTimer;
+    private CountdownTimer cooldownTimer;
     private IProjectileFactory bulletFactory;
-    AudioManager audioManager;
+    private AudioManager audioManager;
+    private Player player;
 
     private void Awake()
     {
         cooldownTimer = new CountdownTimer(weaponData.Cooldown);
         bulletFactory = new ProjectileFactory();
-        audioManager = AudioManager.Instance;
         cooldownTimer.Start();
+    }
+
+    private void Start()
+    {
+        player = InGameManager.Instance.GetPlayer();
+        audioManager = AudioManager.Instance;
     }
 
     public bool CanShoot()
@@ -25,17 +32,16 @@ public class Weapon : MonoBehaviour, IWeapon
         return cooldownTimer.IsFinished && InputManager.NormalAttack;
     }
 
-
     public void Shoot()
     {
         muzzle.Play();
         cooldownTimer.Reset();
         audioManager.PlaySFX(weaponData.ShootSound, shootPos.position);
-        
 
-        var player = InGameManager.Instance.GetPlayer();
+        var isCritical = Util.GetChance(player.Stats.CriticalChance);
+        var damage = isCritical ? weaponData.Damage * player.Stats.CriticalDamage : weaponData.Damage;
 
-        bulletFactory.Create(weaponData.ProjectileType, weaponData.Damage, shootPos.position,
+        bulletFactory.Create(weaponData.ProjectileType, damage, shootPos.position,
             InGameManager.Instance.GetReticle().position,
             player.gameObject);
     }

@@ -24,6 +24,7 @@ public class Player : SerializedSingleton<Player>
     public PlayerStateComponent State { get; private set; }
     public PlayerWeaponComponent Weapon { get; private set; }
     public PlayerHealthComponent Health { get; private set; }
+    public PlayerTriggerComponent Trigger { get; private set; }
 
     #endregion
 
@@ -35,6 +36,7 @@ public class Player : SerializedSingleton<Player>
         Weapon = new PlayerWeaponComponent(this);
         Health = new PlayerHealthComponent(Stats);
         State = new PlayerStateComponent(this);
+        Trigger = new PlayerTriggerComponent();
     }
 
     // private void Start()
@@ -52,6 +54,11 @@ public class Player : SerializedSingleton<Player>
     private void FixedUpdate()
     {
         State.FixedUpdate();
+    }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        Trigger.OnTriggerEnter(other);
     }
 
     public Rigidbody GetRb() => rb;

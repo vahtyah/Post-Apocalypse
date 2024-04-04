@@ -15,9 +15,10 @@ MonoBehaviour:
   Icon: {fileID: 21300000, guid: 44b2ac0abd0b0b5478f3b9f08769fb19, type: 3}
   Name: Prottective Glove
   Description: 
+  ItemStackSize: 1
   Prefab: {fileID: 0}
   Type: 4
   Modifiers:
     stats:
-    - Type: 2
-      Value: 2
+    - Type: 7
+      Value: 10

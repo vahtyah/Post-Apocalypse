@@ -17,5 +17,5 @@
 public enum PlayerAnimState
 {
     Move,
-    Die
+    Die,
 }

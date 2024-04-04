@@ -24,6 +24,7 @@ public class EnemyDieState : EnemyState
     private IEnumerator IEInvisible()
     {
         yield return new WaitForSeconds(2f);
+        enemy.Action.DropItems();
         EnemyFactory.Destroy(enemy);
     }
 }

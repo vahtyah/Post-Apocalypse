@@ -39,7 +39,6 @@ public class StateMachine
         var fromNode = GetOrAddStateNode(from);
         fromNode.AddTransition(to, condition);
     }
-
     public void Any(IState to, IPredicate condition) { anyTransitions.Add(new Transition(to, condition)); }
 
     public void Any(IState to,ref Action action)

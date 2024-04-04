@@ -14,7 +14,7 @@ public class PlayerMovementComponent
         mainCamera = Camera.main;
     }
 
-    public Vector2 GetInput()
+    private Vector2 GetInput()
     {
         inputDir.x = InputManager.HorizontalMovement();
         inputDir.y = InputManager.VerticalMovement();
@@ -31,7 +31,7 @@ public class PlayerMovementComponent
 
     private void Move()
     {
-        var speed = 250 * Time.fixedDeltaTime;
+        var speed = player.Stats.Speed * Time.fixedDeltaTime;
         player.GetRb().velocity = new Vector3(inputDir.x * speed, player.GetRb().velocity.y, inputDir.y * speed);
     }
 

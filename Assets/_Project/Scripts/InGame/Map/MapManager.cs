@@ -2,12 +2,15 @@
 using System.Collections.Generic;
 using Sirenix.OdinInspector;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class MapManager : SerializedSingleton<MapManager>, IInGameState
 {
     [SerializeField] private List<MapScene> mapScenes;
     [ShowInInspector] private MapScene currentMap;
     [ShowInInspector] private int currentIndexMap;
+    
+    [SerializeField] private UnityEvent saveWhenChangeMap;
 
     public string saveKeyIndexMap { get; private set; } = "IndexMap";
 
@@ -40,6 +43,7 @@ public class MapManager : SerializedSingleton<MapManager>, IInGameState
         if (currentMap != null)
             Destroy(currentMap.gameObject);
 
+        saveWhenChangeMap?.Invoke();
         currentMap = Instantiate(mapScenes[currentIndexMap]);
         ES3.Save(saveKeyIndexMap, currentIndexMap);
         currentIndexMap += 1;

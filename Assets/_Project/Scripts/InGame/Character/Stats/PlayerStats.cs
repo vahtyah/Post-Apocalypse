@@ -19,15 +19,15 @@ public class PlayerStats : Stats
         set => this[StatsType.Speed] = value;
     }
 
-    [ProgressBar(0, 100), ShowInInspector]
+    [ProgressBar(0, 5), ShowInInspector]
     public float CriticalDamage
     {
         get => this[StatsType.CriticalDamage];
         set => this[StatsType.CriticalDamage] = value;
     }
 
-    [ProgressBar(0, 30), ShowInInspector]
-    public float Critical
+    [ProgressBar(0, 100), ShowInInspector]
+    public float CriticalChance
     {
         get => this[StatsType.Critical];
         set => this[StatsType.Critical] = value;

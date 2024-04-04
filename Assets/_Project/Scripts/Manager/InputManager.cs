@@ -10,4 +10,5 @@ public static class InputManager
 
     public static bool OpenInventory => Input.GetKeyDown(KeyCode.Tab);
     public static bool Pause => Input.GetKeyDown(KeyCode.Escape);
+    public static bool UseConsumable(KeyCode keyCode) => Input.GetKeyDown(keyCode);
 }

@@ -103,3 +103,7 @@ MonoBehaviour:
       Data: 
   Name: SpiderToxin
   EnemyType: 4
+  ItemsDropOnDie:
+  - {fileID: 974257461039164940, guid: 4c5f751e62d86cd4c8c25be6594801b2, type: 3}
+  DropRate: 20
+  DropAmount: 1

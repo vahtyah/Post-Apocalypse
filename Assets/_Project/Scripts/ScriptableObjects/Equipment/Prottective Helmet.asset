@@ -15,9 +15,10 @@ MonoBehaviour:
   Icon: {fileID: 21300000, guid: 312ef0e13f47f9f488164528a4edbc7b, type: 3}
   Name: Prottective Helmet
   Description: 
+  ItemStackSize: 1
   Prefab: {fileID: 0}
   Type: 5
   Modifiers:
     stats:
     - Type: 0
-      Value: 10
+      Value: 50

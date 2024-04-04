@@ -29,5 +29,8 @@ public class Teleport : MonoBehaviour, IGate
         }
     }
 
-    private void LoadMap() { MapManager.Instance.LoadNextMap(); }
+    private void LoadMap()
+    {
+        MapManager.Instance.LoadNextMap();
+    }
 }

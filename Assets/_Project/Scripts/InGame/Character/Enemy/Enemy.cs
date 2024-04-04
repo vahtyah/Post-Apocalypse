@@ -32,7 +32,7 @@ public abstract class Enemy : SerializedMonoBehaviour
     {
         Health = new EnemyHealthComponent(data.Stats);
         Animation = new EnemyAnimationComponent(animator);
-        Action = new EnemyActionComponent(agent, col);
+        Action = new EnemyActionComponent(agent, col, this);
     }
 
     protected virtual void Update()

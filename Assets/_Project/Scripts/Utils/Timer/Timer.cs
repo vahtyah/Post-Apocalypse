@@ -46,6 +46,7 @@ public abstract class Timer
 
 public class CountdownTimer : Timer
 {
+    public Action<float> OnTimerUpdate = delegate { };
     private bool isFinishWhenStart = false;
 
     public CountdownTimer(float value, bool isFinishWhenStart = false) : base(value)
@@ -65,6 +66,7 @@ public class CountdownTimer : Timer
         if (IsRunning && Time > 0)
         {
             Time -= deltaTime;
+            OnTimerUpdate.Invoke(Progress);
         }
 
         if (IsRunning && Time <= 0)
@@ -78,7 +80,11 @@ public class CountdownTimer : Timer
     public virtual void Reset()
     {
         Time = initialTime;
-        IsRunning = true;
+        if (!IsRunning)
+        {
+            IsRunning = true;
+            OnTimerStart.Invoke();
+        }
     }
 }
 

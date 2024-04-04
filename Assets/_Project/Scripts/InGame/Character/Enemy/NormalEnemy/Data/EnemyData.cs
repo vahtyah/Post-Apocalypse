@@ -10,4 +10,7 @@ public class EnemyData : SerializedScriptableObject
     public Enemy.Type EnemyType;
     [BoxGroup("Enemy Stats"), HideLabel, NonSerialized, OdinSerialize, HideReferenceObjectPicker]
     public EnemyStats Stats = new();
+    public GameObject[] ItemsDropOnDie;
+    public float DropRate;
+    public int DropAmount = 1;
 }
