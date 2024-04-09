@@ -12,7 +12,7 @@ public class ConsumableItemSlot : MonoBehaviour
     [SerializeField] private TextMeshProUGUI amountText;
     [SerializeField, Required] private Image cooldownImage;
 
-    private CountdownTimer timer;
+    private Timer timer;
     private int amount;
     private string saveKey = "ConsumableHealth";
 
@@ -28,24 +28,24 @@ public class ConsumableItemSlot : MonoBehaviour
 
     private void Start()
     {
-        Amount = PlayerPrefs.GetInt(saveKey, 0);
+        Amount = PlayerPrefs.GetInt(saveKey, 0); 
         iconImage.sprite = item.Icon;
-        timer = new CountdownTimer(item.Cooldown, true);
-        timer.OnTimerStart += () => cooldownImage.fillAmount = 0;
-        timer.OnTimerUpdate += f => cooldownImage.fillAmount = f;
-
-        Debug.Log(InGameManager.Instance.GetPlayer().Trigger);
+        
+        timer = Timer.Register(item.Cooldown)
+            .OnStart(() => cooldownImage.fillAmount = 0)
+            .OnProgress(f => cooldownImage.fillAmount = f)
+            .StartWithFinish();
+        
         InGameManager.Instance.GetPlayer().Trigger.OnHitBottleHealth += () => Amount++;
     }
 
     private void Update()
     {
-        timer.Tick(Time.deltaTime);
-        if (InputManager.UseConsumable(item.Hotkey) && timer.IsFinished && amount > 0)
+        if (InputManager.UseConsumable(item.Hotkey) && timer.IsCompleted && amount > 0)
         {
             item.Consume();
-            timer.Reset();
             Amount--;
+            timer.Restart();
         }
     }
     

@@ -5,22 +5,21 @@ using UnityEngine;
 public class StraightProjectile : Projectile
 {
     [SerializeField, BoxGroup("Components")] private Rigidbody rb;
-    private CountdownTimer invisibleTimer;
+    private Timer invisibleTimer;
 
     private void OnEnable()
     {
-        invisibleTimer.Reset();
+        invisibleTimer.Restart();
     }
     protected override void Awake()
     {
         base.Awake();
-        invisibleTimer = new CountdownTimer(3f);
+        invisibleTimer = Timer.Register(3f)
+            .OnComplete(() => projectileFactory.Destroy(this))
+            .Start();
     }
     private void Update()
     {
-        invisibleTimer.Tick(Time.deltaTime);
-        if (invisibleTimer.IsFinished)
-            projectileFactory.Destroy(this);
         rb.velocity = transform.forward * data.Speed;
     }
 
@@ -43,6 +42,6 @@ public class StraightProjectile : Projectile
         }
         ProjectileImpactFactory.Create(data.ProjectileTypes, transform.position);
         health?.TakeDamage(damage);
-        Destroy(gameObject);
+        projectileFactory.Destroy(this);
     }
 }

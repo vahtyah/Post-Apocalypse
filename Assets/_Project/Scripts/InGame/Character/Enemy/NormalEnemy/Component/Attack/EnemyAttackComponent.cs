@@ -3,26 +3,25 @@
 public abstract class EnemyAttackComponent
 {
     protected Enemy enemy;
-    private CountdownTimer timer;
+    private Timer timer;
     private Transform playerTrans;
 
     protected EnemyAttackComponent(Enemy enemy)
     {
         this.enemy = enemy;
-        timer = new CountdownTimer(this.enemy.Data.Stats.AttackCooldown, true);
-        timer.Start();
+        timer = Timer.Register(this.enemy.Data.Stats.AttackCooldown)
+            .StartWithFinish();
         playerTrans = InGameManager.Instance.GetPlayer().transform;
     }
 
     public bool CanAttack()
     {
-        timer.Tick(Time.deltaTime);
-        return timer.IsFinished;
+        return timer.IsCompleted;
     }
 
     public virtual void Attack()
     {
-        timer.Reset();
+        timer.Restart();
         enemy.Animation.Play(EnemyAnimationState.Attack.ToString());
         enemy.Action.LookAt(playerTrans.position);
     }

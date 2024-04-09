@@ -8,16 +8,15 @@ public class Weapon : MonoBehaviour, IWeapon
     [SerializeField] private Transform shootPos;
     [SerializeField] private ParticleSystem muzzle;
 
-    private CountdownTimer cooldownTimer;
+    private Timer cooldownTimer;
     private IProjectileFactory bulletFactory;
     private AudioManager audioManager;
     private Player player;
 
     private void Awake()
     {
-        cooldownTimer = new CountdownTimer(weaponData.Cooldown);
         bulletFactory = new ProjectileFactory();
-        cooldownTimer.Start();
+        cooldownTimer = Timer.Register(weaponData.Cooldown).StartWithFinish();
     }
 
     private void Start()
@@ -28,14 +27,13 @@ public class Weapon : MonoBehaviour, IWeapon
 
     public bool CanShoot()
     {
-        cooldownTimer.Tick(Time.deltaTime);
-        return cooldownTimer.IsFinished && InputManager.NormalAttack;
+        return cooldownTimer.IsCompleted && InputManager.NormalAttack;
     }
 
     public void Shoot()
     {
         muzzle.Play();
-        cooldownTimer.Reset();
+        cooldownTimer.Restart();
         audioManager.PlaySFX(weaponData.ShootSound, shootPos.position);
 
         var isCritical = Util.GetChance(player.Stats.CriticalChance);

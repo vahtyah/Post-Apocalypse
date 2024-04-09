@@ -39,9 +39,9 @@ public class ConsumableItem : Item
     {
         foreach (var effect in Effects)
         {
-            UnityTimer.Timer.Register(Duration, 
-                onUpdate: f => Debug.Log(f),
-                onComplete: () => Debug.Log("Effect finished"));
+            // UnityTimer.Timer.Register(Duration, 
+            //     onUpdate: f => Debug.Log(f),
+            //     onComplete: () => Debug.Log("Effect finished"));
         }
     }
 }
