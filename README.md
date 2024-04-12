@@ -1,5 +1,4 @@
-# Post-Apocalypse
-Post Apocalypse Wiki
+# Post Apocalypse Wiki
 -------------
 Здесь присутсвует информация по игре: руководство по настройки, управлению и игровым механикам.
 
